@@ -94,8 +94,6 @@
     font-display: swap;
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -126,8 +124,9 @@ body {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin: 10px;
+        margin: 30px;
         cursor: pointer;
+        text-align: center;
 
         img {
             width: 50px;
@@ -135,10 +134,11 @@ body {
         }
 
         span {
+            display: block;
             font-family: var(--fontN);
-            margin-top: 5px;
+            margin-top: 8px;
             color: #fff;
-            /* font-family: "nanumSquareNeo"; */
+            font-size: 13px;
         }
     }
 }
@@ -147,6 +147,7 @@ body {
 .layer__wrap {}
 
 .layer__inner {
+
     .layer {
         width: 80vw;
         height: 90vh;
@@ -157,7 +158,6 @@ body {
         transform: translate(-50%, -50%);
         color: #fff;
         font-family: var(--fontN);
-
 
         .layer__conts {
             background-color: #223167a8;

@@ -1,7 +1,7 @@
 # 오늘의 수업
-자기소개 한타. 500타 
-9시 반/
-정보처리/웹디자인기능사
+[메인 페이지](https://gnlgk.github.io/class2024/)   
+
+[자바스크립트](https://gnlgk.github.io/class2024/javascript/index.html)
 
 # vscode 확장 프로그램
 Live Server : 웹페이지 미리보기   

@@ -122,7 +122,7 @@ li {
 /* 가운데 영역 */
 .container {
     max-width: 1300px;
-    width: 100%;
+    width: 96%;
     margin: 0 auto;
 }
 

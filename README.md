@@ -1,7 +1,8 @@
 # 오늘의 수업
 [메인 페이지](https://gnlgk.github.io/class2024/)   
 
-[자바스크립트](https://gnlgk.github.io/class2024/javascript/index.html)
+[자바스크립트](https://gnlgk.github.io/class2024/javascript/index.html)   
+[MySQL](https://gnlgk.github.io/class2024/mysql/index.html)    
 
 # vscode 확장 프로그램
 Live Server : 웹페이지 미리보기   
@@ -36,6 +37,10 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 
 # 벌칙
 자기소개(5분) --> 자기소개(10분) --> 노래 --> 춤 --> 수업 발표
+
+
+## 색상 관련된 사이트
+[브랜드 색상 제너레이션](https://huemint.com/brand-intersection/)
 
 # 사물함
 25

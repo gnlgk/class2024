@@ -40,7 +40,10 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 
 
 ## 색상 관련된 사이트
-[브랜드 색상 제너레이션](https://huemint.com/brand-intersection/)
+[브랜드 색상 제너레이션](https://huemint.com/brand-intersection/)   
+[scss->css 변환](https://www.sassmeister.com/)   
 
 # 사물함
 25
+
+# 명령프롬프트 나가기 : ctrl+ c

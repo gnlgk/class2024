@@ -3,6 +3,7 @@
 
 [자바스크립트](https://gnlgk.github.io/class2024/javascript/index.html)   
 [MySQL](https://gnlgk.github.io/class2024/mysql/index.html)    
+[Quiz](https://gnlgk.github.io/class2024/quiz/index.html)    
 
 # vscode 확장 프로그램
 Live Server : 웹페이지 미리보기   

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //01. 함수 : 선언적 함수
+        {
+            function func() {
+                console.log("01. 함수 : 선언적 함수");
+            }
+            func();
+        }
+
+        //02. 함수 : 익명 함수
+        {
+            const func1 = function () {
+                console.log("02. 함수 : 익명 함수");
+            }
+            func1();
+        }
+        //03. 함수 : 매개 함수
+        {
+            //선언적
+            function func(str) {
+                console.log(str);
+            }
+            func("03. 함수 : 매개 함수");
+
+            //익명
+            const func1 = function (str) {
+                console.log(str);
+            }
+            func1("03. 함수 : 매개 함수");
+        }
+        //04. 함수 : 리턴값 함수
+        {
+            //선언적
+            function func() {
+                return "04. 함수 : 리턴값 함수";
+            }
+            console.log(func());
+            //익명
+            const func1 = function () {
+                return "04. 함수 : 리턴값 함수";
+            }
+            console.log(func1());
+        }
+        //05. 함수 : 매개 + 리턴값 함수
+        {
+            //선언적
+            function func(str) {
+                return str;
+            }
+            console.log(func("05. 함수 : 매개 + 리턴값 함수"));
+            //익명
+            const func1 = function (str) {
+                return str;
+            }
+            console.log(func("05. 함수 : 매개 + 리턴값 함수"));
+        }
+
+        {
+            function func() {
+                console.log("d");
+            }
+            func();
+        }
+        {
+            const func = function () {
+                console.log("d");
+            }
+            func();
+        }
+        {
+            function func(str) {
+                console.log(str);
+            }
+            func("dsadd");
+
+            const func1 = function (str) {
+                console.log(str);
+            }
+            func1("ddsad");
+        }
+        {
+            function func() {
+                return "쏼라쏼라";
+            }
+            console.log(func());
+
+            const func1 = function () {
+                return "dsadsqw";
+            }
+            console.log(func1());
+        }
+        {
+            function func(str) {
+                return str;
+            }
+            console.log(func("dsadsd"));
+
+            const func1 = function (str) {
+                return str;
+            }
+            console.log(func("dwqdwqfwq"));
+        }
+    </script>
+</body>
+
+</html>

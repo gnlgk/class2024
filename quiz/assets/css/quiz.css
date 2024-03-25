@@ -1,4 +1,3 @@
-/* 웹폰트 설정 */
 @font-face {
     font-family: "nanumSquareNeo";
     font-weight: 300;
@@ -59,167 +58,199 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'GmarketSans';
-    font-weight: 300;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix') format('embedded-opentype'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GmarketSans';
-    font-weight: 500;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot?#iefix') format('embedded-opentype'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GmarketSans';
-    font-weight: 700;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot?#iefix') format('embedded-opentype'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff2') format('woff2'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff') format('woff'),
-        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.ttf') format("truetype");
-    font-display: swap;
-}
-
-/* 초기 셋팅값 */
-:root {
-    --fontN: 'nanumSquareNeo';
-    --fontG: 'GmarketSans';
-}
-
-/* 여백 초기화 */
+/* reset */
 * {
     margin: 0;
     padding: 0;
+    font-family: "nanumSquareNeo";
     box-sizing: border-box;
+    font-size: 16px;
 }
 
-/* 링크 초기화 */
-a {
-    color: #000;
-    text-decoration: none;
-}
-
-/* 목록 초기화 */
 li {
     list-style: none;
 }
 
-/* 가운데 영역 */
-.container {
-    max-width: 1300px;
-    width: 96%;
-    margin: 0 auto;
+a {
+    text-decoration: none;
+    color: #000;
 }
 
-@charset "UTF-8";
+/* body */
+body {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-image: url(../img/bg01.jpg);
+    width: 100%;
+    height: 100vh;
+}
 
-/* 헤더 영역 */
+body::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+/* common */
+.none {
+    display: none;
+}
+
+/* header */
 #header {
-    text-align: center;
-    padding: 40px;
-    border-bottom: 1px dashed #dcdcdc;
-}
-
-#header h1 {
-    margin-bottom: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #header h1 a {
-    font-family: var(--fontG);
-    font-size: 4vw;
-    color: #071169;
-}
-
-@media (max-width: 800px) {
-    #header h1 a {
-        font-size: 30px;
-    }
-}
-
-#header nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#header nav ul li {
-    margin: 2px;
-}
-
-#header nav ul li a {
-    font-family: var(--fontN);
-    border: 1px solid #071169;
-    padding: 10px 20px;
     display: inline-block;
-    color: #071169;
+    color: #fff;
+    padding: 20px;
+    font-size: 30px;
 }
 
-#header nav ul li.active a {
-    background-color: #071169;
+#header nav {
+    padding-right: 20px;
+}
+
+#header nav li {
+    display: inline-block;
+}
+
+#header nav li a {
+    padding: 10px;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #fff;
+    text-align: center;
+    box-shadow: 1px 1px 0px #fff;
+    line-height: 1;
     color: #fff;
 }
 
-/* 메인 - 메뉴 */
-.main__menu {
-    padding: 40px 0;
-    border-bottom: 1px dashed #dcdcdc;
+#header nav li.active a {
+    background-color: #fff;
+    color: #000;
 }
 
-.main__menu ul li a {
-    color: #071169;
-    line-height: 1.7;
-    font-family: var(--fontN);
+/* footer */
+#footer {
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
-.main__menu ul li a:hover {
+#footer a {
+    display: inline-block;
+    color: #fff;
+    padding: 40px;
+}
+
+#footer a:hover {
     text-decoration: underline;
     text-underline-position: under;
 }
 
-/* 메인 - 샘플 */
-.main__sample {
-    padding: 40px 0;
+/* quiz__wrap */
+.quiz__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.main__sample .sample {
-    margin-bottom: 100px;
+.quiz__wrap .quiz {
+    max-width: 500px;
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    margin: 10px;
 }
 
-.main__sample .sample h3 {
+.quiz__header {
+    color: #696969;
+    margin-bottom: 20px;
+}
+
+.quiz__main .question {
+    margin-bottom: 20px;
+}
+
+.quiz__main .question em {
     font-size: 24px;
-    font-family: var(--fontG);
-    margin-bottom: 10px;
+    font-style: normal;
+    line-height: 1.4;
 }
 
-.main__sample .sample p {
-    font-family: var(--fontN);
-    margin-bottom: 10px;
-    line-height: 1.3;
+.quiz__main .question span {
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.quiz__main .input input {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #7db5c5;
+    border-radius: 3px;
+    font-size: 16px;
     color: #666;
+    margin-bottom: 10px;
 }
 
-.main__sample .sample .result {
-    font-family: var(--fontN);
+.quiz__main .answer {
+    border: 1px solid #7db5c5;
+    padding: 20px;
+    background-color: #cee0e5;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #666;
     line-height: 1.5;
-    color: #666;
+    margin-bottom: 10px;
 }
 
-/* 푸터 */
-#footer {
-    height: 400px;
+.quiz__main .answer::before {
+    content: '🍒정답 : ';
+}
+
+.quiz__main .desc {
+    border: 1px solid #7db5c5;
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.quiz__main .desc::before {
+    content: '🍸설명 : ';
+}
+
+.quiz__footer .confirm {
+    background-color: #3b575e;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    border: 0;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s;
+}
+
+.quiz__footer .confirm:hover {
+    background-color: transparent;
+    border: 1px dashed #3b575e;
+    color: #3b575e;
+    cursor: pointer;
 }

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 02</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="index.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li class="active"><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <div class="quiz__header">
+                    <span class="date"></span>
+                    <span class="type"></span>
+                </div>
+                <div class="quiz__main">
+                    <div class="question">
+                        <em></em>.
+                        <span></span>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="정답을 입력해주세요!">
+                    </div>
+                    <div class="answer"></div>
+                    <div class="desc"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+            <div class="quiz">
+                <div class="quiz__header">
+                    <span class="date"></span>
+                    <span class="type"></span>
+                </div>
+                <div class="quiz__main">
+                    <div class="question">
+                        <em></em>.
+                        <span></span>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="정답을 입력해주세요!">
+                    </div>
+                    <div class="answer"></div>
+                    <div class="desc"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+            <div class="quiz">
+                <div class="quiz__header">
+                    <span class="date"></span>
+                    <span class="type"></span>
+                </div>
+                <div class="quiz__main">
+                    <div class="question">
+                        <em></em>.
+                        <span></span>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="정답을 입력해주세요!">
+                    </div>
+                    <div class="answer"></div>
+                    <div class="desc"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+            <div class="quiz">
+                <div class="quiz__header">
+                    <span class="date"></span>
+                    <span class="type"></span>
+                </div>
+                <div class="quiz__main">
+                    <div class="question">
+                        <em></em>.
+                        <span></span>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="정답을 입력해주세요!">
+                    </div>
+                    <div class="answer"></div>
+                    <div class="desc"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+            <div class="quiz">
+                <div class="quiz__header">
+                    <span class="date"></span>
+                    <span class="type"></span>
+                </div>
+                <div class="quiz__main">
+                    <div class="question">
+                        <em></em>.
+                        <span></span>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="정답을 입력해주세요!">
+                    </div>
+                    <div class="answer"></div>
+                    <div class="desc"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- main -->
+    <footer id="footer">
+        <a href="mailto:fdcwrt@gmail.com">fdcwrt@gmail.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        // 문제 정보
+        const quizInfo = [
+            {
+                infoDate: "2021년 1회",
+                infoType: "정보처리기능사",
+                infoNum: "01",
+                infoQuestion: "입출력 조작의 시간과 중앙처리장치의 처리시간과의 불균형을 보완하는 것은?",
+                infoAnswer: "채널장치",
+                infoDesc: "채중입 : 채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다.",
+            },
+            {
+                infoDate: "2011년 1회",
+                infoType: "정보처리기능사",
+                infoNum: "02",
+                infoQuestion: "다음 중 데이터의 암호화와 압축을 수행하는 OSI 참조 모델의 계층은?",
+                infoAnswer: "표현 계층",
+                infoDesc: "제1계층 물리계층--물리적 절차 규정<br>제2계층 데이터 링크 계층--정보 전송 오류제어<br>제3계층 네트워크 계층--정보교환 중계기능 경로 선정 유통제어<br>제4계층 전송계층--논리적 안정 균등한 서비스 제공<br>제5계층 세션계층--연결접속 동기제어<br>제6계층 표현계층--형식설정 부호 교환 암호해독 압축<br>제7계층 응용계층--응용프로세스간의 정보교환 및 전자 사서함 파일 전송",
+            },
+            {
+                infoDate: "2021년 1회",
+                infoType: "정보처리기능사",
+                infoNum: "03",
+                infoQuestion: "운영체제의 데이터 처리 방식 중 처리할 데이터를 일정한 시간이 경과하거나 일정한 수준이 되었을 때 일시에 처리하는 것은?",
+                infoAnswer: "Batch Processing System",
+                infoDesc: "atch Processing System : 일정량의 작업을 모았다가 한꺼번에 처리 하는 방식(월급, 성적등)",
+            },
+            {
+                infoDate: "2021년 1회",
+                infoType: "정보처리기능사",
+                infoNum: "04",
+                infoQuestion: "도스(MS-DOS)에서 파일을 저장하고, 보관하는 것은?",
+                infoAnswer: "디렉터리(Directory)",
+                infoDesc: "디렉터리(Directory)와 폴더는 같은 뜻입니다.",
+            },
+            {
+                infoDate: "2021년 1회",
+                infoType: "정보처리기능사",
+                infoNum: "05",
+                infoQuestion: "컴퓨터에 하드디스크를 새로 장착하고 부팅 가능한 하드디스크로 만들기 위한 도스 명령어는?",
+                infoAnswer: "ORMAT C:/S",
+                infoDesc: "/S:<br> DOS로 컴퓨터를 부팅하기 위해 필요한<br>IO.SYS, MSDOS.SYS, COMMAND.COM의 시스템 파일과<br> 공간 늘림 프로그램을 사용한 디스크를 읽는 방법을 담고 있는시스템 파일인<br> DBLSPACE.BIN(윈도우 98은 DRVSPACE.BIN)을<br> 시동 드라이브에서 읽어 포맷하는 스크로 복사해 부팅 가능하도록 합니다."
+            },
+        ]
+
+
+
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+        const quizDate = quizWrap.querySelectorAll(".quiz__header .date");
+        const quizType = quizWrap.querySelectorAll(".quiz__header .type");
+        const quizNum = quizWrap.querySelectorAll(".quiz__main .question em");
+        const quizQuestion = quizWrap.querySelectorAll(".quiz__main .question span");
+        const quizInput = quizWrap.querySelectorAll(".input input");
+        const quizAnswer = quizWrap.querySelectorAll(".answer");
+        const quizDesc = quizWrap.querySelectorAll(".desc");
+        const quizConfirm = quizWrap.querySelectorAll(".quiz__footer .confirm");
+
+        // 문제 출력
+        // for (let i = 0; i < quizInfo.length; i++) {
+        //     quizDate[i].textContent = quizInfo[i].infoDate;
+        //     quizType[i].textContent = quizInfo[i].infoType;
+        //     quizNum[i].textContent = quizInfo[i].infoNum;
+        //     quizQuestion[i].textContent = quizInfo[i].infoQuestion;
+        //     quizAnswer[i].textContent = quizInfo[i].infoAnswer;
+        //     quizDesc[i].textContent = quizInfo[i].infoDesc;
+        // };
+
+        quizInfo.forEach(function (e, i) {
+            quizDate[i].innerHTML = quizInfo[i].infoDate;
+            quizType[i].innerHTML = quizInfo[i].infoType;
+            quizNum[i].innerHTML = quizInfo[i].infoNum;
+            quizQuestion[i].innerHTML = quizInfo[i].infoQuestion;
+            quizAnswer[i].innerHTML = quizInfo[i].infoAnswer;
+            quizDesc[i].innerHTML = quizInfo[i].infoDesc;
+        });
+
+        // 정답.해설 숨기기
+        // for (let i = 0; i < quizInfo.length; i++) {
+        //     quizAnswer[i].classList.add("none");
+        //     quizDesc[i].classList.add("none");
+        // };
+
+        quizInfo.forEach(function (e, i) {
+            quizAnswer[i].classList.add("none");
+            quizDesc[i].classList.add("none");
+        });
+
+        // 정답확인
+        quizConfirm.forEach(function (btn, num) {
+            btn.addEventListener("click", function () {
+                const userAnswer = quizInput[num].value;  //사용자 정답
+                const correctAnswer = quizInfo[num].infoAnswer;  //정답지의 정답
+
+                if (userAnswer == correctAnswer) {
+                    alert("정답입니다.");
+                } else {
+                    alert("오답입니다.");
+                }
+
+                // 정답과 설명 보여주기
+                quizAnswer[num].classList.remove("none");
+                quizDesc[num].classList.remove("none");
+            })
+        });
+
+    </script>
+</body>
+
+</html>

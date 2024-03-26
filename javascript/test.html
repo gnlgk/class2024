@@ -11,104 +11,113 @@
     <script>
         //01. 함수 : 선언적 함수
         {
-            function func() {
-                console.log("01. 함수 : 선언적 함수");
+            function test() {
+                console.log("01. 함수 실행");
             }
-            func();
+            test();
         }
-
         //02. 함수 : 익명 함수
         {
-            const func1 = function () {
-                console.log("02. 함수 : 익명 함수");
+            const test = function () {
+                console.log("02. 함수 실행");
             }
-            func1();
+            test();
         }
         //03. 함수 : 매개 함수
         {
-            //선언적
-            function func(str) {
-                console.log(str);
+            function test(string) {
+                console.log(string)
             }
-            func("03. 함수 : 매개 함수");
-
-            //익명
-            const func1 = function (str) {
-                console.log(str);
-            }
-            func1("03. 함수 : 매개 함수");
+            test("03. 함수 실행");
         }
         //04. 함수 : 리턴값 함수
         {
-            //선언적
-            function func() {
-                return "04. 함수 : 리턴값 함수";
+            function test() {
+                return "04. 함수 실행";
             }
-            console.log(func());
-            //익명
-            const func1 = function () {
-                return "04. 함수 : 리턴값 함수";
-            }
-            console.log(func1());
+            console.log(test());
         }
         //05. 함수 : 매개 + 리턴값 함수
         {
-            //선언적
-            function func(str) {
-                return str;
+            function test(string) {
+                return string;
             }
-            console.log(func("05. 함수 : 매개 + 리턴값 함수"));
-            //익명
-            const func1 = function (str) {
-                return str;
-            }
-            console.log(func("05. 함수 : 매개 + 리턴값 함수"));
+            console.log(test("05. 함수 실행"));
         }
+        //06. 화살표 함수 : 선언적 함수
+        {
+            test = () => {
+                console.log("01. 함수 실행");
+            }
+            test();
+        }
+        //07. 화살표 함수 : 익명 함수
+        {
+            const test = () => {
+                console.log("02. 함수 실행");
+            }
+            test();
+        }
+        //08. 화살표 함수 : 매개 함수
+        {
+            test = (string) => {
+                console.log(string)
+            }
+            test("03. 함수 실행");
+        }
+        //09. 화살표 함수 : 리턴값 함수
+        {
+            test = () => {
+                return "04. 함수 실행";
+            }
+            console.log(test());
+        }
+        //10. 화살표 함수 : 매개 + 리턴값 함수
+        {
+            test = (string) => {
+                return string;
+            }
+            console.log(test("05. 함수 실행"));
+        }
+        //11. for문
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-        {
-            function func() {
-                console.log("d");
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
             }
-            func();
         }
+        //12. forEach문
         {
-            const func = function () {
-                console.log("d");
-            }
-            func();
-        }
-        {
-            function func(str) {
-                console.log(str);
-            }
-            func("dsadd");
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            const func1 = function (str) {
-                console.log(str);
-            }
-            func1("ddsad");
+            arr.forEach(function (element) {
+                console.log(element);
+            });
         }
+        //13. for of
         {
-            function func() {
-                return "쏼라쏼라";
-            }
-            console.log(func());
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            const func1 = function () {
-                return "dsadsqw";
+            for (let element of arr) {
+                console.log(element);
             }
-            console.log(func1());
         }
+        //14. for in
         {
-            function func(str) {
-                return str;
-            }
-            console.log(func("dsadsd"));
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            const func1 = function (str) {
-                return str;
+            for (let element in arr) {
+                console.log(arr[element]);
             }
-            console.log(func("dwqdwqfwq"));
+        }
+        //15. map()
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            arr.map(function (element) {
+                console.log(element);
+            });
         }
     </script>
 </body>

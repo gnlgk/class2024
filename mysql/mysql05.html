@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySQL03</title>
+    <title>MySQL05</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/prism.css">
@@ -22,6 +22,7 @@
                 <li><a href="mysql03.html">데이터 베이스</a></li>
                 <li><a href="mysql04.html">테이블</a></li>
                 <li class="active"><a href="mysql05.html">SELECT</a></li>
+                <li><a href="mysql06.html">ALTER</a></li>
             </ul>
         </nav>
     </header>
@@ -35,7 +36,7 @@
                 <div class="info">
                     SELECT * FROM table 이름;
                 </div>
-                <pre><code class="language-js">mysql> SELECT * FROM members3;
+                <pre><code class="language-js">mysql> SELECT * FROM members;
 +----------+---------+---------+--------+----------+------------+
 | memberID | youName | youPass | youAge | youBirth | regTime    |
 +----------+---------+---------+--------+----------+------------+
@@ -61,7 +62,7 @@
                 <div class="info">
                     SELECT youName FROM table 이름;
                 </div>
-                <pre><code class="language-js">mysql> SELECT youName FROM members3;
+                <pre><code class="language-js">mysql> SELECT youName FROM members;
 +---------+
 | youName |
 +---------+
@@ -87,7 +88,7 @@
                 <div class="info">
                     SELECT youName, youAge FROM table 이름;
                 </div>
-                <pre><code class="language-js">mysql> SELECT youName, youAge FROM members3;
+                <pre><code class="language-js">mysql> SELECT youName, youAge FROM members;
 +---------+--------+
 | youName | youAge |
 +---------+--------+
@@ -217,7 +218,7 @@
                 <div class="info">
                     SELECT * FROM 이름 WHERE memberID = 1;
                 </div>
-                <pre><code class="language-js">mysql> SELECT * FROM members3 WHERE memberID = 1;
+                <pre><code class="language-js">mysql> SELECT * FROM members WHERE memberID = 1;
 +----------+---------+---------+--------+----------+------------+
 | memberID | youName | youPass | youAge | youBirth | regTime    |
 +----------+---------+---------+--------+----------+------------+
@@ -229,7 +230,7 @@
                 <div class="info">
                     SELECT * FROM 이름 WHERE memberID > 10;
                 </div>
-                <pre><code class="language-js">mysql> SELECT * FROM members3 WHERE memberID > 10;
+                <pre><code class="language-js">mysql> SELECT * FROM members WHERE memberID > 10;
 +----------+---------+---------+--------+----------+------------+
 | memberID | youName | youPass | youAge | youBirth | regTime    |
 +----------+---------+---------+--------+----------+------------+
@@ -244,7 +245,7 @@
                 <h4>memberID가 5보다 크고 10보다 작은 데이터</h4>
                 <div class="info">
                     SELECT * FROM 이름 WHERE memberID &gt; 5 AND memberID &lt; 10; </div>
-                <pre><code class="language-js">mysql> SELECT * FROM members3 WHERE memberID &gt; 5 AND memberID &lt; 10;
+                <pre><code class="language-js">mysql> SELECT * FROM members WHERE memberID &gt; 5 AND memberID &lt; 10;
 +----------+---------+---------+--------+----------+------------+
 | memberID | youName | youPass | youAge | youBirth | regTime    |
 +----------+---------+---------+--------+----------+------------+
@@ -258,7 +259,7 @@
                 <h4>memberID가 1, 5, 10 데이터(IN)</h4>
                 <div class="info">
                     SELECT * FROM 이름 WHERE memberID IN(1, 5, 10); </div>
-                <pre><code class="language-js">mysql> SELECT * FROM members3 WHERE memberID IN(1, 5, 10);
+                <pre><code class="language-js">mysql> SELECT * FROM members WHERE memberID IN(1, 5, 10);
 +----------+---------+---------+--------+----------+------------+
 | memberID | youName | youPass | youAge | youBirth | regTime    |
 +----------+---------+---------+--------+----------+------------+

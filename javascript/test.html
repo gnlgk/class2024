@@ -12,111 +12,109 @@
         //01. 함수 : 선언적 함수
         {
             function test() {
-                console.log("01. 함수 실행");
-            }
+                console.log("01");
+            };
             test();
         }
         //02. 함수 : 익명 함수
         {
             const test = function () {
-                console.log("02. 함수 실행");
-            }
+                console.log("02");
+            };
             test();
         }
         //03. 함수 : 매개 함수
         {
-            function test(string) {
-                console.log(string)
-            }
-            test("03. 함수 실행");
+            function test(str) {
+                console.log(str);
+            };
+            test("03");
         }
         //04. 함수 : 리턴값 함수
         {
             function test() {
-                return "04. 함수 실행";
-            }
+                return "04";
+            };
             console.log(test());
         }
         //05. 함수 : 매개 + 리턴값 함수
         {
-            function test(string) {
-                return string;
-            }
-            console.log(test("05. 함수 실행"));
+            function test(str) {
+                return str;
+            };
+            console.log(test("05"));
         }
         //06. 화살표 함수 : 선언적 함수
         {
             test = () => {
-                console.log("01. 함수 실행");
-            }
+                console.log("01");
+            };
             test();
         }
         //07. 화살표 함수 : 익명 함수
         {
             const test = () => {
-                console.log("02. 함수 실행");
-            }
+                console.log("02");
+            };
             test();
         }
         //08. 화살표 함수 : 매개 함수
         {
-            test = (string) => {
-                console.log(string)
-            }
-            test("03. 함수 실행");
+            test = (str) => {
+                console.log(str);
+            };
+            test("03");
         }
         //09. 화살표 함수 : 리턴값 함수
         {
             test = () => {
-                return "04. 함수 실행";
-            }
+                return "04";
+            };
             console.log(test());
         }
         //10. 화살표 함수 : 매개 + 리턴값 함수
         {
-            test = (string) => {
-                return string;
-            }
-            console.log(test("05. 함수 실행"));
+            test = (str) => {
+                return str;
+            };
+            console.log(test("05"));
         }
         //11. for문
         {
             const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
             for (let i = 0; i < arr.length; i++) {
                 console.log(arr[i]);
-            }
+            };
         }
         //12. forEach문
         {
             const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            arr.forEach(function (element) {
-                console.log(element);
+            arr.forEach(function (e) {
+                console.log(e);
             });
         }
         //13. for of
         {
             const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            for (let element of arr) {
-                console.log(element);
-            }
+            for (let e of arr) {
+                console.log(e);
+            };
         }
         //14. for in
         {
             const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-            for (let element in arr) {
-                console.log(arr[element]);
-            }
+            for (let e in arr) {
+                console.log(arr[e]);
+            };
         }
         //15. map()
         {
             const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-            arr.map(function (element) {
-                console.log(element);
+            arr.map(function (e) {
+                console.log(e);
             });
         }
     </script>

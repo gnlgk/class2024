@@ -24,6 +24,8 @@
 - 반복문(for(), forEach())   
 - 메서드(innerText(), classList.add, addEventListener, if문)  
 
+[웹스](https://gnlgk.github.io/class2024/quiz/cate.html)   
+
 ### vscode 확장 프로그램
 Live Server : 웹페이지 미리보기   
 Material Icon : 아이콘 설정   

@@ -197,6 +197,62 @@ body::after {
     line-height: 1.4;
 }
 
+.quiz__main .choices {
+    margin-bottom: 20px;
+}
+
+.quiz__main .choices label {
+    display: block;
+    width: 100%;
+}
+
+.quiz__main .choices label input {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.quiz__main .choices label span {
+    border: 1px solid #eee;
+    padding: 17px;
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.quiz__main .choices label span:hover {
+    border-color: #3b575e;
+    color: #3b575e;
+    box-shadow: 1px 1px 5px #3b575e60;
+}
+
+.quiz__main .choices label span::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px #3b575e;
+    margin-right: 13px;
+    transition: all 0.3s;
+}
+
+.quiz__main .choices label input:checked+span::before {
+    box-shadow: inset 0 0 0 9px #3b575e;
+}
+
+.quiz__main .choices label input:checked+span {
+    border-color: #3b575e;
+    color: #3b575e;
+    box-shadow: 1px 1px 5px #3b575e60;
+    background-color: #3b575e1e;
+}
+
 .quiz__main .input input {
     width: 100%;
     padding: 20px;

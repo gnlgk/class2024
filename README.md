@@ -9,8 +9,20 @@
 
 [퀴즈01](https://gnlgk.github.io/class2024/quiz/quiz01.html)      
 - 변수(const)    
-- 선택자(querySelector)    
-- 메서드(innerText(), classList, addEventListener, if문)    
+- 선택자(querySelector())    
+- 메서드(innerText(), classList.remove, addEventListener, if문)    
+
+[퀴즈02](https://gnlgk.github.io/class2024/quiz/quiz02.html)  
+- 배열, 객체   
+- 선택자(querySelectorAll())   
+- 반복문(for(), forEach())   
+- 메서드(innerText(), classList.add, addEventListener, if문)  
+
+[퀴즈03](https://gnlgk.github.io/class2024/quiz/quiz03.html)  
+- 배열, 객체   
+- 선택자(querySelectorAll())   
+- 반복문(for(), forEach())   
+- 메서드(innerText(), classList.add, addEventListener, if문)  
 
 ### vscode 확장 프로그램
 Live Server : 웹페이지 미리보기   
@@ -50,6 +62,12 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 ### 색상 관련된 사이트
 [브랜드 색상 제너레이션](https://huemint.com/brand-intersection/)   
 [scss->css 변환](https://www.sassmeister.com/)   
+(https://spline.design/)
+(https://prismjs.com/)
+(https://threejs.org/)
+(https://gero3.github.io/facetype.js/)
+(https://github.com/websfont?tab=repositories)
+
 
 # 사물함
 25

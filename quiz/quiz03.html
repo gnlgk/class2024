@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 03</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="index.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li class="active"><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <div class="quiz__header"></div>
+                <div class="quiz__main">
+                    <div class="question"></div>
+                    <div class="choices">
+                        <label for="choice1">
+                            <input type="radio" id="choice1" name="choice" value="1">
+                            <span></span>
+                        </label>
+                        <label for="choice2">
+                            <input type="radio" id="choice2" name="choice" value="2">
+                            <span></span>
+                        </label>
+                        <label for="choice3">
+                            <input type="radio" id="choice3" name="choice" value="3">
+                            <span></span>
+                        </label>
+                        <label for="choice4">
+                            <input type="radio" id="choice4" name="choice" value="4">
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="answer"></div>
+                    <div class="desc"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- main -->
+    <footer id="footer">
+        <a href="mailto:fdcwrt@gmail.com">fdcwrt@gmail.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+        const quizHeader = quizWrap.querySelector(".quiz__header");
+        const quizQuestion = quizWrap.querySelector(".quiz__main .question");
+        const quizChoices = quizWrap.querySelector(".quiz__main .choices");
+        const quizAnswer = quizWrap.querySelector(".quiz__main .answer");
+        const quizDesc = quizWrap.querySelector(".quiz__main .desc");
+        const quizConfirm = quizWrap.querySelector(".quiz__footer .confirm");
+
+        // 문제 정보
+        const quizInfo = {
+            date: "2021년 1회",
+            type: "정보처리기능사",
+            num: "01",
+            question: "입출력 조작의 시간과 중앙처리장치의 처리시간과의 불균형을 보완하는 것은?",
+            answer: "채널장치",
+            choices: ["채널장치", "제어장치", "터미널장치", "콘솔장치"],
+            desc: "채중입 : 채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다.",
+        }
+
+        // 문제 출력
+        quizHeader.innerHTML = quizInfo.date + " " + quizInfo.type;
+        quizQuestion.innerHTML = quizInfo.num + ". " + quizInfo.question;
+
+    </script>
+</body>
+
+</html>

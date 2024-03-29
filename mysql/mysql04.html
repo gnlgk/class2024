@@ -36,14 +36,14 @@
                     CREATE table 이름;
                 </div>
                 <pre><code class="language-js">mysql> CREATE table members(
-                        memberID int(10) unsigned auto_increment,
-                        youName varchar(10) NOT NULL,
-                        youPass varchar(10) NOT NULL,
-                        youAge int(5) NOT NULL,
-                        youBirth int(5) NOT NULL,
-                        regTime int(30) NOT NULL,
-                        PRIMARY KEY(memberID)
-                    ) charset=utf8;</code></pre>
+    memberID int(10) unsigned auto_increment,
+    youName varchar(10) NOT NULL,
+    youPass varchar(10) NOT NULL,
+    youAge int(5) NOT NULL,
+    youBirth int(5) NOT NULL,
+    regTime int(30) NOT NULL,
+    PRIMARY KEY(memberID)
+) charset=utf8;</code></pre>
             </div>
             <div id="sample02" class="sample">
                 <h3>테이블 구조 보기</h3>
@@ -106,22 +106,22 @@ Query OK, 0 rows affected (0.02 sec)</code></pre>
                     SELECT [필드명] FROM [테이블.앨리어스] JOIN [테이블.앨리어스] ON [기준이 되는 조건문(PK)];
                 </div>
                 <pre><code class="language-js">mysql> CREATE table members(
-                    memberID int(10) unsigned auto_increment,
-                    youName varchar(10) NOT NULL,
-                    youPass varchar(10) NOT NULL,
-                    youAge int(5) NOT NULL,
-                    youBirth int(5) NOT NULL,
-                    regTime int(30) NOT NULL,
-                    PRIMARY KEY(memberID)
-                ) charset=utf8;
+    memberID int(10) unsigned auto_increment,
+    youName varchar(10) NOT NULL,
+    youPass varchar(10) NOT NULL,
+    youAge int(5) NOT NULL,
+    youBirth int(5) NOT NULL,
+    regTime int(30) NOT NULL,
+    PRIMARY KEY(memberID)
+) charset=utf8;
 
-                CREATE table reviews(
-                        reviewID int(10) unsigned auto_increment,
-                        memberID int(10) unsigned,
-                        youText tinytext NOT NULL,
-                        regTime int(30) NOT NULL,
-                        PRIMARY KEY(reviewID)
-                    ) charset=utf8;
+CREATE table reviews(
+        reviewID int(10) unsigned auto_increment,
+        memberID int(10) unsigned,
+        youText tinytext NOT NULL,
+        regTime int(30) NOT NULL,
+        PRIMARY KEY(reviewID)
+    ) charset=utf8;
 Query OK, 0 rows affected (0.02 sec)
 
 INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("황상연", "1234", "33", "990304", "1023958375");

@@ -126,8 +126,6 @@ li {
     margin: 0 auto;
 }
 
-@charset "UTF-8";
-
 /* 헤더 영역 */
 #header {
     text-align: center;
@@ -209,7 +207,7 @@ li {
 .main__sample .sample p {
     font-family: var(--fontN);
     margin-bottom: 10px;
-    line-height: 1.3;
+    line-height: 1.5;
     color: #666;
 }
 

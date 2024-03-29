@@ -69,7 +69,7 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 (https://threejs.org/)
 (https://gero3.github.io/facetype.js/)
 (https://github.com/websfont?tab=repositories)
-
+[아이콘](https://simpleicons.org/)
 
 # 사물함
 25

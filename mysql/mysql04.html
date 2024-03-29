@@ -100,9 +100,62 @@ Query OK, 0 rows affected (0.01 sec)</code></pre>
                 <pre><code class="language-js">mysql> TRUNCATE table members;
 Query OK, 0 rows affected (0.02 sec)</code></pre>
             </div>
+            <div id="sample06" class="sample">
+                <h3>테이블 합치기(JOIN)</h3>
+                <div class="info">
+                    SELECT [필드명] FROM [테이블.앨리어스] JOIN [테이블.앨리어스] ON [기준이 되는 조건문(PK)];
+                </div>
+                <pre><code class="language-js">mysql> CREATE table members(
+                    memberID int(10) unsigned auto_increment,
+                    youName varchar(10) NOT NULL,
+                    youPass varchar(10) NOT NULL,
+                    youAge int(5) NOT NULL,
+                    youBirth int(5) NOT NULL,
+                    regTime int(30) NOT NULL,
+                    PRIMARY KEY(memberID)
+                ) charset=utf8;
+
+                CREATE table reviews(
+                        reviewID int(10) unsigned auto_increment,
+                        memberID int(10) unsigned,
+                        youText tinytext NOT NULL,
+                        regTime int(30) NOT NULL,
+                        PRIMARY KEY(reviewID)
+                    ) charset=utf8;
+Query OK, 0 rows affected (0.02 sec)
+
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("황상연", "1234", "33", "990304", "1023958375");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("남윤서", "1234", "19", "060121", "1023958375");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("김진우", "1234", "21", "040416", "1231231233");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("최선화", "1234", "26", "990123", "1104781152");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("서대원", "1234", "26", "011019", "1111100000");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("김현민", "1234", "32", "930604", "1023958375");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("황인지", "1234", "20", "990315", "1474187756");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("박정민", "1234", "29", "961017", "1023958375");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("강서연", "1234", "27", "980420", "0123456744");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("이재혁", "1215", "24", "010712", "1023958375");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("박소현", "1234", "29", "960917", "1231223123");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("김혜지", "1234", "28", "951002", "0123456789");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("강경민", "1234", "28", "970611", "1023952467");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("안지은", "1234", "33", "840816", "1023958375");
+INSERT INTO members(youName, youPass, youAge, youBirth, regTime) VALUES("박진아", "1232", "33", "990304", "1023958375");
+
+INSERT INTO reviews(memberID, youText, regTime) VALUES("3", "매우 만족스러운 경험이었습니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("1", "멋진 내용입니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("6", "이런 피드백을 받을 수 있어 기쁩니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("7", "훌륭한 서비스였습니다.", "0123456789");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("13", "매우 도움이 되었습니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("5", "좋은 경험을 공유해 주셔서 감사합니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("6", "귀중한 의견 감사드립니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("3", "이용해 주셔서 감사합니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("6", "소중한 피드백 감사합니다.", "1023958375");
+INSERT INTO reviews(memberID, youText, regTime) VALUES("1", "대단히 만족스러웠습니다.", "1023958375");
+</code></pre>
+            </div>
         </div>
     </main>
     <!-- main -->
+
     <footer id="footer">
         <a href="mailto:fdcwrt@gmail.com">fdcwrt@gmail.com</a>
     </footer>

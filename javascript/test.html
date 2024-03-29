@@ -1,103 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #header {
+            height: 100px;
+            background-color: #fae9e9;
+        }
+
+        #header .container .logo {
+            width: 20%;
+            height: 100px;
+            background-color: #d97373;
+        }
+
+        #header .container .menu {
+            width: 80%;
+            height: 100px;
+            background-color: #e78787;
+        }
+
+        #slider {
+            height: 300px;
+        }
+
+        #slider .slider1 {
+            width: 50%;
+            height: 300px;
+            background-color: #d18383;
+        }
+
+        #slider .slider2 {
+            width: 50%;
+        }
+
+        #slider .slider2 .slider2-1 {
+            width: 100%;
+            height: 150px;
+            background-color: #8d3232;
+        }
+
+        #slider .slider2 .slider2-2 {
+            width: 100%;
+            height: 150px;
+            background-color: #ce2b2b;
+        }
+
+        #contents {
+            height: 200px;
+            background-color: #dbd6d6;
+        }
+
+        #contents .content1 {
+            width: 33.333%;
+            height: 200px;
+            background-color: #902828;
+        }
+
+        #contents .content2 {
+            width: 33.333%;
+            height: 200px;
+            background-color: #a17b7b;
+        }
+
+        #contents .content3 {
+            width: 33.333%;
+            height: 200px;
+            background-color: #c65d5d;
+        }
+
+        #footer {
+            height: 100px;
+            background-color: #e39898;
+        }
+
+        #footer .footer1 {
+            width: 20%;
+            height: 100px;
+            background-color: #2d0b0b;
+        }
+
+        #footer .footer2 {
+            width: 60%;
+            height: 100px;
+            background-color: #e3aeae;
+        }
+
+        #footer .footer3 {
+            width: 20%;
+            height: 100px;
+            background-color: #e25151;
+        }
+
+        .container {
+            width: 1200px;
+            height: inherit;
+            margin: 0 auto;
+            display: flex;
+        }
+    </style>
 </head>
 
 <body>
-    <script>
-        // 01. 선언적 함수(화살표)
-        {
-            test = () => {
-                console.log("01");
-            }
-            test();
-        }
-        // 02. 익명 함수(화살표)
-        {
-            const test = () => {
-                console.log("02");
-            }
-            test();
-        }
-        // 03. 매게변수 함수(화살표)
-        {
-            test = (str) => {
-                console.log(str);
-            }
-            test("03");
-        }
-        // 04. 리턴값 함수(화살표)
-        {
-            test = () => {
-                return "04";
-            }
-            console.log(test());
-        }
-        // 05. 매개변수 + 리턴값 함수(화살표)
-        {
-            test = (str) => {
-                return str;
-            }
-            console.log(test("05"));
-        }
-        // 06. for문(1부터 20까지 출력)
-        {
-            for (let i = 1; i <= 20; i++) {
-                console.log(i);
-            };
-        }
-        // 07. for문(let num = [1,2,3,4,5,6,7,8])출력
-        {
-            let num = [1, 2, 3, 4, 5, 6, 7, 8]
-
-            for (let i = 0; i < num.length; i++) {
-                console.log(num[i]);
-            };
-        }
-        // 08. forEach()(let num = [1,2,3,4,5,6,7,8])출력
-        {
-            let num = [1, 2, 3, 4, 5, 6, 7, 8]
-
-            num.forEach(function (e) {
-                console.log(e);
-            });
-        }
-        // 09. for in(let num = [1,2,3,4,5,6,7,8])출력
-        {
-            let num = [1, 2, 3, 4, 5, 6, 7, 8]
-
-            for (let e in num) {
-                console.log(num[e]);
-            };
-        }
-        // 10. for of(let num = [1,2,3,4,5,6,7,8])출력
-        {
-            let num = [1, 2, 3, 4, 5, 6, 7, 8]
-            for (let e of num) {
-                console.log(e);
-            };
-        }
-        // 11. map(let num = [1,2,3,4,5,6,7,8])출력
-        {
-            let num = [1, 2, 3, 4, 5, 6, 7, 8]
-
-            num.map(function (e) {
-                console.log(e);
-            });
-        }
-        // 12. filter(let num = [1,2,3,4,5,6,7,8])출력 
-        {
-            let num = [1, 2, 3, 4, 5, 6, 7, 8]
-
-            num.filter(function (e) {
-                console.log(e);
-            });
-        }
-    </script>
+    <div id="wrap">
+        <header id="header">
+            <div class="container">
+                <h1 class="logo"></h1>
+                <nav class="menu"></nav>
+            </div>
+        </header>
+        <!-- header -->
+        <article id="slider">
+            <div class="container">
+                <div class="slider1"></div>
+                <div class="slider2">
+                    <div class="slider2-1"></div>
+                    <div class="slider2-2"></div>
+                </div>
+            </div>
+        </article>
+        <!-- slider -->
+        <main id="contents">
+            <div class="container">
+                <section class="content1"></section>
+                <section class="content2"></section>
+                <section class="content3"></section>
+            </div>
+        </main>
+        <!-- content -->
+        <footer id="footer">
+            <div class="container">
+                <div class="footer1"></div>
+                <div class="footer2"></div>
+                <div class="footer3"></div>
+            </div>
+        </footer>
+        <!-- footer -->
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 04</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="index.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li class="active"><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="quiz__wrap"></div>
+    </main>
+    <!-- main -->
+
+    <footer id="footer">
+        <a href="mailto:fdcwrt@gmail.com">fdcwrt@gmail.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                question: "입출력 조작의 시간과 중앙처리장치의 처리시간과의 불균형을 보완하는 것은?",
+                choices:
+                {
+                    1: "채널장치",
+                    2: "제어장치",
+                    3: "터미널장치",
+                    4: "콘솔장치"
+                },
+                answer: "1",
+                desc: "채중입 : 채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다.",
+            },
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                question: "명령어 형식(instruction format)에서 첫 번째 바이트에 기억되는 것은?",
+                choices:
+                {
+                    1: "incorrect_answers",
+                    2: "operand",
+                    3: "length",
+                    4: "question mark"
+                },
+                answer: "2",
+                desc: "명령어의 구성명령어 코드부 + 주소부 (한글),<br> OP-code + Operand (영문)",
+            },
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                question: "반가산기(Half-Adder)의 논리회로도에서 자리올림이 발생하는 회로는?",
+                choices:
+                {
+                    1: "OR",
+                    2: "NOT",
+                    3: "AND",
+                    4: "ExclusiveOR"
+                },
+                answer: "3",
+                desc: "반가산기 구성: S = A XOR B, C = A AND B, <br>S : SUM(합), C : Carry(자리올림)",
+            },
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                question: "2진수의 1011의 1의 보수는?",
+                choices:
+                {
+                    1: "1000",
+                    2: "0010",
+                    3: "0100",
+                    4: "1010"
+                },
+                answer: "3",
+                desc: "1의 보수는 1은 0으로, 0은 1로 바꾸어 주면 답이 됩니다.",
+            },
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                question: "1개의 입력선으로 들어오는 정보를 2n개의 출력선 중 1개를 선택하여 출력하는 회로는?",
+                choices:
+                {
+                    1: "디멀티플렉서",
+                    2: "멀티플렉서",
+                    3: "인코더",
+                    4: "디코더"
+                },
+                answer: "1",
+                desc: "티 플렉서<br>디멀티플렉서는 1개의 입력선으로 들어오는 정보를 2^n개의 출력선 중 1개를 선택하여 출력하는 회로이다. <br>2^n개의 출력선 중 1개의 선을 선택하기 위해 n개의 선택선을 이용한다.",
+            }
+        ]
+
+        // 문제 출력
+        const updateQuiz = () => {
+            const quizArray = [];
+
+            quizInfo.forEach((quiz, index) => {
+                quizArray.push(`
+                    <div class="quiz">
+                        <div class="quiz__header">${quiz.date} ${quiz.type}</div>
+                        <div class="quiz__main">
+                            <div class="question">${index + 1 + ". "} ${quiz.question}</div>
+                            <div class="choices">
+                                <label for="choice1-${index}">
+                                    <input type="radio" id="choice1-${index}" name="choice-${index}" value="1">
+                                    <span>${quiz.choices["1"]}</span >
+                                </label >
+                                <label for="choice2-${index}">
+                                    <input type="radio" id="choice2-${index}" name="choice-${index}" value="2">
+                                    <span>${quiz.choices["2"]}</span>
+                                </label>
+                                <label for="choice3-${index}">
+                                    <input type="radio" id="choice3-${index}" name="choice-${index}" value="3">
+                                    <span>${quiz.choices["3"]}</span>
+                                </label>
+                                <label for="choice4-${index}">
+                                    <input type="radio" id="choice4-${index}" name="choice-${index}" value="4">
+                                    <span>${quiz.choices["4"]}</span>
+                                </label>
+                            </div >
+                            <div class="answer none">${quiz.answer}</div>
+                            <div class="desc none">${quiz.desc}</div>
+                        </div >
+            <div class="quiz__footer">
+                <button class="confirm">정답 확인하기</button>
+            </div>
+                    </div >
+                `);
+                quizWrap.innerHTML = quizArray.join("");
+            });
+            console.log(quizArray);
+        }
+        updateQuiz();
+    </script>
+</body>
+
+</html>

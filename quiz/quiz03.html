@@ -50,8 +50,8 @@
                             <span></span>
                         </label>
                     </div>
-                    <div class="answer"></div>
-                    <div class="desc"></div>
+                    <div class="answer none"></div>
+                    <div class="desc none"></div>
                 </div>
                 <div class="quiz__footer">
                     <button class="confirm">정답 확인하기</button>
@@ -71,10 +71,11 @@
         const quizWrap = document.querySelector(".quiz__wrap");
         const quizHeader = quizWrap.querySelector(".quiz__header");
         const quizQuestion = quizWrap.querySelector(".quiz__main .question");
-        const quizChoices = quizWrap.querySelector(".quiz__main .choices");
         const quizAnswer = quizWrap.querySelector(".quiz__main .answer");
         const quizDesc = quizWrap.querySelector(".quiz__main .desc");
         const quizConfirm = quizWrap.querySelector(".quiz__footer .confirm");
+        const quizChoices = quizWrap.querySelectorAll(".quiz__main .choices span");
+        const quizSelects = quizWrap.querySelectorAll(".quiz__main .choices input");
 
         // 문제 정보
         const quizInfo = {
@@ -82,7 +83,7 @@
             type: "정보처리기능사",
             num: "01",
             question: "입출력 조작의 시간과 중앙처리장치의 처리시간과의 불균형을 보완하는 것은?",
-            answer: "채널장치",
+            answer: "1",
             choices: ["채널장치", "제어장치", "터미널장치", "콘솔장치"],
             desc: "채중입 : 채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다.",
         }
@@ -90,6 +91,44 @@
         // 문제 출력
         quizHeader.innerHTML = quizInfo.date + " " + quizInfo.type;
         quizQuestion.innerHTML = quizInfo.num + ". " + quizInfo.question;
+        quizAnswer.innerHTML = quizInfo.answer;
+        quizDesc.innerHTML = quizInfo.desc;
+
+        for (let i = 0; i < quizChoices.length; i++) {
+            quizChoices[i].innerHTML = quizInfo.choices[i];
+        }
+
+        // quizInfo.choices.forEach((e, i) => {
+        //     quizChoices[i].innerHTML = quizInfo.choices[i];
+        // })
+
+        // 정답확인
+        // 버튼 클릭
+        quizConfirm.addEventListener("click", () => {
+            let selectedChoice = null;
+
+            // 보기 선택
+            for (let i = 0; i < quizSelects.length; i++) {
+                if (quizSelects[i].checked) {
+                    selectedChoice = quizSelects[i].value;
+                    break;
+                }
+            }
+
+            // 정답 확인
+            if (selectedChoice !== null) {
+                if (selectedChoice == quizInfo.answer) {
+                    alert("정답입니다.");
+                    quizDesc.classList.remove("none");
+                } else {
+                    alert("오답입니다.");
+                    quizAnswer.classList.remove("none");
+                    quizDesc.classList.remove("none");
+                }
+            } else {
+                alert("정답을 선택해주세요.");
+            }
+        });
     </script>
 </body>
 

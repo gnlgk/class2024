@@ -125,20 +125,20 @@
                         <div class="quiz__main">
                             <div class="question">${index + 1 + ". "} ${quiz.question}</div>
                             <div class="choices">
-                                <label for="choice1-${index}">
-                                    <input type="radio" id="choice1-${index}" name="choice-${index}" value="1">
+                                <label for="${index}-1">
+                                    <input type="radio" id="${index}-1" name="choice-${index}" value="1">
                                     <span>${quiz.choices["1"]}</span >
                                 </label >
-                                <label for="choice2-${index}">
-                                    <input type="radio" id="choice2-${index}" name="choice-${index}" value="2">
+                                <label for="${index}-2">
+                                    <input type="radio" id="${index}-2" name="choice-${index}" value="2">
                                     <span>${quiz.choices["2"]}</span>
                                 </label>
-                                <label for="choice3-${index}">
-                                    <input type="radio" id="choice3-${index}" name="choice-${index}" value="3">
+                                <label for="${index}-3">
+                                    <input type="radio" id="${index}-3" name="choice-${index}" value="3">
                                     <span>${quiz.choices["3"]}</span>
                                 </label>
-                                <label for="choice4-${index}">
-                                    <input type="radio" id="choice4-${index}" name="choice-${index}" value="4">
+                                <label for="${index}-4">
+                                    <input type="radio" id="${index}-4" name="choice-${index}" value="4">
                                     <span>${quiz.choices["4"]}</span>
                                 </label>
                             </div >
@@ -152,9 +152,45 @@
                 `);
                 quizWrap.innerHTML = quizArray.join("");
             });
-            console.log(quizArray);
         }
-        updateQuiz();
+
+        // 정답 확인
+        const answerQuiz = (index) => {
+            // 사용자가 체크한 정답
+            const quizChecked = quizWrap.querySelectorAll(`.quiz__main .choices input[name="choice-${index}"]:checked`);
+            const quizElement = quizWrap.querySelectorAll(".quiz")[index];
+            const answerElement = quizWrap.querySelectorAll(".answer")[index];
+            const descElement = quizWrap.querySelectorAll(".desc")[index];
+            const btnElement = quizWrap.querySelectorAll(".confirm")[index];
+
+            if (quizChecked.length > 0) {
+                const userAnswer = quizChecked[0].value;
+                if (userAnswer == quizInfo[index].answer) {
+                    quizElement.classList.add("good");
+                } else {
+                    quizElement.classList.add("bad");
+                    answerElement.classList.remove("none");
+                }
+                descElement.classList.remove("none");
+                // btnElement.classList.add("none");
+                btnElement.style.display = "none";
+            } else {
+                alert("보기를 선택해주세요!!");
+            }
+        }
+
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            // 문제 출력
+            updateQuiz();
+
+            // 정답 확인
+            quizWrap.querySelectorAll(".confirm").forEach((button, i) => {
+                button.addEventListener("click", () => {
+                    answerQuiz(i);
+                })
+            })
+        });
     </script>
 </body>
 

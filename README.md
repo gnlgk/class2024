@@ -19,10 +19,17 @@
 - 메서드(innerText(), classList.add, addEventListener, if문)  
 
 [퀴즈03](https://gnlgk.github.io/class2024/quiz/quiz03.html)  
-- 배열, 객체   
-- 선택자(querySelectorAll())   
+- 변수, 배열, 객체   
+- 선택자(querySelectorAll(),querySelector())   
+- 반복문(for(), break문)   
+- 메서드(innerHTML(), classList.add, addEventListener, if문)  
+
+[퀴즈04](https://gnlgk.github.io/class2024/quiz/quiz04.html)   
+- 변수, 배열, 객체, 템플릿 리터럴`   
+- 선택자(querySelectorAll(), querySelector())   
 - 반복문(for(), forEach())   
-- 메서드(innerText(), classList.add, addEventListener, if문)  
+- 메서드(join(), push(), innerHTML())  
+
 
 [웹스](https://gnlgk.github.io/class2024/webd/cate.html)   
 
@@ -70,7 +77,7 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 (https://gero3.github.io/facetype.js/)
 (https://github.com/websfont?tab=repositories)
 [아이콘](https://simpleicons.org/)
-
+(https://www.figma.com/file/pnxUji1RRaGRU23w5dS9TI/apple?type=design&node-id=0%3A1&mode=design&t=5Dd8uMF1lFRGLGMD-1)
 # 사물함
 25
 

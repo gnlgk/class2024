@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 05</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="index.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li class="active"><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="quiz__wrap"></div>
+    </main>
+    <!-- main -->
+
+    <footer id="footer">
+        <a href="mailto:fdcwrt@gmail.com">fdcwrt@gmail.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "피변조파로부터 원래의 신호파를 만드는 것을 무엇이라고 하는가?",
+                choices: ["발진", "정류", "증폭", "복조"],
+                answer: "4",
+                desc: "피변조파는 변조된 신호를 의미합니다. 변조된 신호를 원래의 신호로 만드는 것을 복조라고 합니다."
+            },
+            {
+                date: "2018년 상시",
+                type: "정보처리 기능사",
+                question: "반가산기(Half-Adder)에서 두 개의 입력 비트가 모두 1일 때 합(Sum)은?",
+                choices: ["0", "1", "10", "11"],
+                answer: "1",
+                desc: "반가산기(Half-Adder)에서 두 개의 입력 비트가 모두 1일 때 합(Sum)은 0입니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "CPU 에서 명령이 실행되는 순서를 제어하거나 특정 프로그램에 관련된 컴퓨터 시스템의 상태를 나타내고 유지하기 위한 제어 워드로서, 실행중인 CPU의 상황을 나타내는 것은?",
+                choices: ["MBR", "MAR", "PC", "PSW"],
+                answer: "4",
+                desc: "CPU 에서 명령이 실행되는 순서를 제어하거나 특정 프로그램에 관련된 컴퓨터 시스템의 상태를 나타내고 유지하기 위한 제어 워드로서, 실행중인 CPU의 상황을 나타내는 것은 PSW입니다."
+            },
+            {
+                date: "2019년 상시",
+                type: "정보처리 기능사",
+                question: "논리적 연산의 종류에 해당되지 않는 것은?",
+                choices: ["AND", "ADD", "OR", "Rotate"],
+                answer: "2",
+                desc: "ADD는 논리적연산자의 해당되지않습니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "8개의 bit로 표현 가능한 정보의 최대 가지수는?",
+                choices: ["255", "256", "257", "258"],
+                answer: "2",
+                desc: "8개의 bit로 표현 가능한 정보의 최대 가지수는 256입니다."
+            },
+        ]
+
+        // 변수
+        let currentIndex = 0; // 현재 문제 값
+
+        // 문제 출력
+        const updateQuiz = (index) => {
+            let quizWrapTag = `
+                <div class="quiz">
+                    <div class="quiz__header">${quizInfo[index].date} ${quizInfo[index].type}</div>
+                    <div class="quiz__main">
+                        <div class="question">${index + 1}. ${quizInfo[index].question}</div>
+                        <div class="choices">
+                            <label for="choice1">
+                                <input type="radio" id="choice1" name="choice" value="1">
+                                <span>${quizInfo[index].choices[0]}</span>
+                            </label>
+                            <label for="choice2">
+                                <input type="radio" id="choice2" name="choice" value="2">
+                                <span>${quizInfo[index].choices[1]}</span>
+                            </label>
+                            <label for="choice3">
+                                <input type="radio" id="choice3" name="choice" value="3">
+                                <span>${quizInfo[index].choices[2]}</span>
+                            </label>
+                            <label for="choice4">
+                                <input type="radio" id="choice4" name="choice" value="4">
+                                <span>${quizInfo[index].choices[3]}</span>
+                            </label>
+                        </div>
+                        <div class="answer none">${quizInfo[index].answer}</div>
+                        <div class="desc none">${quizInfo[index].desc}</div>
+                    </div>
+                    <div class="quiz__footer">
+                        <button class="confirm">정답 확인하기</button>
+                        <button class="next none">다음 문제</button>
+                    </div>
+                </div>
+            `
+            quizWrap.innerHTML = quizWrapTag;
+
+            // 선택자
+            const quizConfirm = quizWrap.querySelector(".confirm");
+            const quizNext = quizWrap.querySelector(".next");
+
+            // 정답 버튼을 클릭
+            quizConfirm.addEventListener("click", () => {
+
+                // 사용자가 클릭한 정답 확인
+                const quizChecked = quizWrap.querySelector("input[name='choice']:checked");
+
+                if (quizChecked) {
+                    const userAnswer = quizChecked.value;               //사용자가 클릭한 value값
+                    const quizAnswer = quizInfo[currentIndex].answer;   //정답지의 정답
+                    const quizElement = quizWrap.querySelector(".quiz");
+                    const answerElement = quizWrap.querySelector(".answer");
+                    const descElement = quizWrap.querySelector(".desc");
+
+                    //사용자 정답과 정답지 정답을 비교
+                    if (userAnswer === quizAnswer) {
+                        quizElement.classList.add("good");
+                    } else {
+                        quizElement.classList.add("bad");
+                        answerElement.classList.remove("none");
+                    }
+                    descElement.classList.remove("none");
+                    quizConfirm.classList.add("none");
+                    quizNext.classList.remove("none");
+                } else {
+                    alert("정답을 선택해주세요!");
+                }
+            });
+
+            // 다음 문제 버튼을 클릭
+            quizNext.addEventListener("click", () => {
+                if (currentIndex < quizInfo.length - 1) {
+                    currentIndex++;             // 문제 번호 증가
+                    updateQuiz(currentIndex);   //퀴즈 반영
+                } else {
+                    alert("퀴즈가 종료되었습니다.");
+                }
+
+            });
+        };
+
+        //페이지가 로드된 후에 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            updateQuiz(currentIndex);
+        });
+
+    </script>
+</body>
+
+</html>

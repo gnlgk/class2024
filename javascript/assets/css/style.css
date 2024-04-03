@@ -1,4 +1,6 @@
 /* 웹폰트 설정 */
+@import url("https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css");
+
 @font-face {
     font-family: "nanumSquareNeo";
     font-weight: 300;
@@ -124,6 +126,13 @@ li {
     max-width: 1300px;
     width: 96%;
     margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    #container {
+        width: 90%;
+        padding: 40px 16px;
+    }
 }
 
 /* 헤더 영역 */

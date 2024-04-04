@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-4</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #wrap {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+        }
+
+        #header .container {
+            display: flex;
+        }
+
+        #header .container .logo {
+            width: 20%;
+            height: 100px;
+            background-color: #eef1ff;
+        }
+
+        #header .container .nav {
+            width: 80%;
+            height: 100px;
+            background-color: #d6ddfd;
+        }
+
+        #slider {
+            width: 100%;
+            height: 350px;
+            background-color: #bfcafc;
+            position: relative;
+        }
+
+        .links {
+            width: 1340px;
+            height: 100px;
+            background-color: #a9b8fc;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+
+        }
+
+        #contents {
+            width: 100%;
+        }
+
+        #contents .container .banner {
+            height: 150px;
+            background-color: #94a6fa;
+        }
+
+        #contents .container .notice {
+            display: flex;
+        }
+
+        #contents .container .notice .content1 {
+            width: 50%;
+            height: 250px;
+            background-color: #7f96fc;
+        }
+
+        #contents .container .notice .content2 {
+            width: 50%;
+            height: 250px;
+            background-color: #6984fa;
+        }
+
+        #footer {
+            width: 100%;
+        }
+
+        #footer .container {
+            display: flex;
+        }
+
+        #footer .container .footer1 {
+            width: 20%;
+            height: 120px;
+            background-color: #5775fc;
+        }
+
+        #footer .container .footer2 {
+            width: 60%;
+            height: 120px;
+            background-color: #4062fa;
+        }
+
+        #footer .container .footer3 {
+            width: 20%;
+            height: 120px;
+            background-color: #294ffc;
+        }
+
+        .container {
+            width: 1340px;
+            margin: 0 auto;
+            height: inherit;
+            background-color: #133efa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="container">
+                <h1 class="logo"></h1>
+                <nav class="nav"></nav>
+            </div>
+        </header>
+        <!-- header -->
+        <article id="slider">
+            <div class="links"></div>
+        </article>
+        <!-- slider -->
+        <section id="contents">
+            <div class="container">
+                <article class="banner"></article>
+                <article class="notice">
+                    <div class="content1"></div>
+                    <div class="content2"></div>
+                </article>
+            </div>
+        </section>
+        <!-- contents -->
+        <footer id="footer">
+            <div class="container">
+                <div class="footer1"></div>
+                <div class="footer2"></div>
+                <div class="footer3"></div>
+            </div>
+        </footer>
+        <!-- footer -->
+    </div>
+</body>
+
+</html>

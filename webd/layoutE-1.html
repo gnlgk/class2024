@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+        }
+
+        #main {
+            width: 100%;
+            height: calc(100vh - 120px);
+            display: flex;
+        }
+
+        #header {
+            width: 200px;
+            height: 100%;
+        }
+
+        .logo {
+            height: 10%;
+            background-color: #e5f4fa;
+        }
+
+        .menu {
+            height: 90%;
+            background-color: #d1f0fc;
+        }
+
+        #contents {
+            width: 400px;
+            height: 100%;
+            background-color: #bceafc;
+        }
+
+        .banner {
+            height: 10%;
+            background-color: #a3e3fc;
+        }
+
+        .notice {
+            height: 35%;
+            background-color: #88dafa;
+        }
+
+        .gallery {
+            height: 35%;
+            background-color: #6cd0f8;
+        }
+
+        .link {
+            height: 20%;
+            background-color: #55caf8;
+        }
+
+        #slider {
+            width: calc(100% - 600px);
+            height: 100%;
+            background-color: #3fc4f8;
+        }
+
+        #footer {
+            width: 100%;
+            display: flex;
+        }
+
+        .footer1 {
+            width: 200px;
+            height: 120px;
+            background-color: #2cc0fa;
+        }
+
+        .footer2 {
+            width: calc(100% - 200px);
+        }
+
+        .footer2-1 {
+            height: 60px;
+            background-color: #18bafa;
+        }
+
+        .footer2-2 {
+            height: 60px;
+            background-color: #04b5fc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <main id="main">
+            <header id="header">
+                <h1 class="logo"></h1>
+                <nav class="menu"></nav>
+            </header>
+            <!-- header -->
+            <section id="contents">
+                <article class="banner"></article>
+                <article class="notice"></article>
+                <article class="gallery"></article>
+                <article class="link"></article>
+            </section>
+            <!-- header -->
+            <artcle id="slider"></artcle>
+            <!-- slider -->
+        </main>
+        <!-- main -->
+        <footer id="footer">
+            <div class="footer1"></div>
+            <div class="footer2">
+                <div class="footer2-1"></div>
+                <div class="footer2-2"></div>
+            </div>
+        </footer>
+        <!-- footer -->
+    </div>
+</body>
+
+</html>

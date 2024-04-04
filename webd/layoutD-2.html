@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #aside {
+            width: 200px;
+        }
+
+        .logo {
+            height: 100px;
+            background-color: #daebdd;
+        }
+
+        .nav {
+            height: 550px;
+            background-color: #caebd0;
+        }
+
+        #main {
+            width: calc(100% - 200px);
+        }
+
+        #slider {
+            width: 100%;
+            display: flex;
+        }
+
+        .slider1 {
+            width: calc(100% - 150px);
+            height: 400px;
+            background-color: #b9ecc3;
+        }
+
+        .slider2 {
+            width: 150px;
+            height: 400px;
+            background-color: #a7ecb5;
+        }
+
+        #contents {
+            width: 100%;
+            display: flex;
+        }
+
+        .contents1 {
+            width: 50%;
+            height: 250px;
+            background-color: #94eba5;
+        }
+
+        .contents2 {
+            width: 50%;
+            height: 250px;
+            background-color: #83eb98;
+        }
+
+        #footer {
+            width: 100%;
+            display: flex;
+        }
+
+        .footer1 {
+            width: 200px;
+            height: 100px;
+            background-color: #6ceb85;
+        }
+
+        .footer2 {
+            width: calc(100% - 500px);
+            height: 100px;
+            background-color: #55ec73;
+        }
+
+        .footer3 {
+            width: 300px;
+            height: 100px;
+            background-color: #3aec5e;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <aside id="aside">
+            <h1 class="logo"></h1>
+            <nav class="nav"></nav>
+        </aside>
+        <main id="main">
+            <article id="slider">
+                <div class="slider1"></div>
+                <div class="slider2"></div>
+            </article>
+            <article id="contents">
+                <div class="contents1"></div>
+                <div class="contents2"></div>
+            </article>
+        </main>
+        <footer id="footer">
+            <div class="footer1"></div>
+            <div class="footer2"></div>
+            <div class="footer3"></div>
+        </footer>
+    </div>
+</body>
+
+</html>

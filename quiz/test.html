@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 05</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="index.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li class="active"><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="quiz__wrap"></div>
+    </main>
+    <!-- main -->
+
+    <footer id="footer">
+        <a href="mailto:fdcwrt@gmail.com">fdcwrt@gmail.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "다음 코드의 결과값은 무엇인가요?",
+                code: `
+                <pre><code>{
+    const arr = [100, 200, "javascript"];
+
+    arr.push(400);
+
+    console.log(arr[0]);
+    console.log(arr[3]); 
+}
+
+</code></pre>`,
+                choices: ["100, 200",
+                    "100, javascript",
+                    "200, javascript",
+                    "100, 400"],
+                answer: "4",
+                desc: "push() 메서드는 배열의 끝에 하나 이상의 요소를 추가하는 데 사용됩니다. 이를 통해 배열의 크기를 동적으로 확장하고 새로운 요소를 배열에 추가할 수 있습니다."
+            },
+            {
+                date: "2018년 상시",
+                type: "정보처리 기능사",
+                question: "'javascript'를 출력하는 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    const arr = [100, [200, 300], ["javascript", "jquery"]];
+}
+
+</code></pre>`,
+                choices: [
+                    "console.log(arr[1][0]);",
+                    "console.log(arr[1][1]);",
+                    "console.log(arr[2][0]);",
+                    "console.log(arr[2][1]);"
+                ],
+                answer: "3",
+                desc: "다차원 배열은 배열의 요소로 또 다른 배열을 포함하는 배열입니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "400을 출력하는 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    const arr = [100, 200, [300, 400]];
+
+    const [a, b, [x, y]] = arr;
+}
+
+</code></pre>`,
+                choices: [
+                    "console.log(y);",
+                    "console.log(arr.y);",
+                    "console.log(arr[2].y);",
+                    "console.log(arr[2][1].y);"
+                ],
+                answer: "1",
+                desc: "배열 구조 분해 할당은 배열의 각 요소를 변수에 개별적으로 할당하는 기술입니다.arr의 값을 [a, b, [x, y]]에 넣었기 때문에 400을 출력하려면 y만 입력합니다."
+            },
+            {
+                date: "2019년 상시",
+                type: "정보처리 기능사",
+                question: "400을 출력하는 값으로 빈칸에 들어가는 값이 옳은 것은?",
+                code: `
+                <pre><code>{
+    const obj = [
+        { a: 100, b: 200, c: "javascript" }, 
+        { a: 300, b: 400, c: "jquery" }
+        ];
+
+    console.log(___);
+}
+
+</code></pre>`,
+                choices: [
+                    "obj[0].b",
+                    "obj[1].b",
+                    "obj[1][1]",
+                    "obj[1][2]"
+                ],
+                answer: "2",
+                desc: "배열 안에 객체가 있는 방식은 배열의 순번을 표시해주고 .을 이용해 객체키 값을 입력합니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "객체펼침연산자에 관한 코드이다. merge1의 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    const obj1 = { a: 100, b: 200, }
+    const obj2 = { c: 300, d: 400, }
+    const merge1 = { ...obj1, ...obj2 }
+
+    console.log(merge1);   
+}
+
+</code></pre>`,
+                choices: [
+                    "a:100, b:200, c:300, d:400",
+                    "(a:100, b:200, c:300, d:400)",
+                    "{a:100, b:200, c:300, d:400}",
+                    "[a:100, b:200, c:300, d:400]"
+                ],
+                answer: "3",
+                desc: "객체는 키와 값으로 데이터를 저장하는 자료구조이며, 객체 펼침 연산자는 객체의 속성을 펼쳐서 새로운 객체로 만드는 역할을 합니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "for in문이다. element의 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    const arr = [100, 200, 300, 400, 500];
+
+    for (let element in arr) {
+        console.log(element);
+    }
+}
+
+</code></pre>`,
+                choices: [
+                    "0, 1, 2, 3, 4",
+                    "1, 2, 3, 4, 5",
+                    "100, 200, 300, 400, 500",
+                    "100 200 300 400 500"
+                ],
+                answer: "1",
+                desc: "for in문의 element값은 index 값을 for of문은 element값을 가져옵니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "element의 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    const arr = [100, 200, 300, 400, 500];
+
+    arr.map(function (element) {
+        console.log(element);             
+});
+}
+
+</code></pre>`,
+                choices: [
+                    "0, 1, 2, 3, 4",
+                    "[100, 200, 300, 400, 500]",
+                    "100, 200, 300, 400, 500",
+                    "[100 200 300 400 500]"
+                ],
+                answer: "2",
+                desc: "배열의 인덱스나 객체의 속성명과 같은 키에 대해 반복하며, 주로 객체를 순회할 때 사용됩니다. 그러나 배열에 사용할 경우, 배열의 인덱스를 반환하므로 주의해야 합니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "출력되는 a, b, c의 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    const [a, b, c = "javascript"] = [100, 200];
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+</code></pre>`,
+                choices: [
+                    "a, b, c",
+                    "100, 200",
+                    "100, 200, javascript",
+                    "0, 1"
+                ],
+                answer: "3",
+                desc: "배열구조분해할당에 대한 내용입니다. 기본 값을 배열 안에서 추가로 정의가 가능합니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "출력되는 값으로 옳은 것은?",
+                code: `
+                <pre><code>{
+    function numbers(a, b, c) {
+        return c + b - a;
+    };
+    const nums = [100, 200, 300];
+    console.log(numbers(...nums));
+}
+
+</code></pre>`,
+                choices: [
+                    "300",
+                    "400",
+                    "500",
+                    "600"
+                ],
+                answer: "2",
+                desc: "배열 펼침 연산자는 배열의 요소들을 개별적인 값으로 분해하여 불러옵니다. 함수 인자로 사용하여 계산된 값을 반환합니다."
+            },
+            {
+                date: "2017년 상시",
+                type: "정보처리 기능사",
+                question: "출력되는 값이 다른 것은?",
+                code: `
+                <pre><code>{
+    const obj = {
+        a: 100,
+        b: 200,
+        c: "javascript"
+    };
+    console.log(obj.hasOwnProperty("a"));
+    console.log(obj.hasOwnProperty("b")); 
+    console.log(obj.hasOwnProperty("c")); 
+    console.log(obj.hasOwnProperty("d")); 
+}
+
+</code></pre>`,
+                choices: [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                ],
+                answer: "4",
+                desc: "hasOwnProperty() 메서드는 객체가 특정 속성을 직접 소유하고 있는지 여부를 확인합니다. 값이 있으면 True, 값이 없으면 False를 반환합니다."
+            },
+        ]
+
+        // 변수
+        let currentIndex = 0; // 현재 문제 값
+
+        // 문제 출력
+        const updateQuiz = (index) => {
+            let quizWrapTag = `
+                <div class="quiz">
+                    <div class="quiz__header">${quizInfo[index].date} ${quizInfo[index].type}</div>
+                    <div class="quiz__main">
+                        <div class="question">${index + 1}. ${quizInfo[index].question}</div>
+                        <div class="code">${quizInfo[index].code}</div>
+                        <div class="choices">
+                            <label for="choice1">
+                                <input type="radio" id="choice1" name="choice" value="1">
+                                <span>${quizInfo[index].choices[0]}</span>
+                            </label>
+                            <label for="choice2">
+                                <input type="radio" id="choice2" name="choice" value="2">
+                                <span>${quizInfo[index].choices[1]}</span>
+                            </label>
+                            <label for="choice3">
+                                <input type="radio" id="choice3" name="choice" value="3">
+                                <span>${quizInfo[index].choices[2]}</span>
+                            </label>
+                            <label for="choice4">
+                                <input type="radio" id="choice4" name="choice" value="4">
+                                <span>${quizInfo[index].choices[3]}</span>
+                            </label>
+                        </div>
+                        <div class="answer none">${quizInfo[index].answer}</div>
+                        <div class="desc none">${quizInfo[index].desc}</div>
+                    </div>
+                    <div class="quiz__footer">
+                        <button class="confirm">정답 확인하기</button>
+                        <button class="next none">다음 문제</button>
+                    </div>
+                </div>
+            `
+            quizWrap.innerHTML = quizWrapTag;
+
+            // 선택자
+            const quizConfirm = quizWrap.querySelector(".confirm");
+            const quizNext = quizWrap.querySelector(".next");
+
+            // 정답 버튼을 클릭
+            quizConfirm.addEventListener("click", () => {
+
+                // 사용자가 클릭한 정답 확인
+                const quizChecked = quizWrap.querySelector("input[name='choice']:checked");
+
+                if (quizChecked) {
+                    const userAnswer = quizChecked.value;               //사용자가 클릭한 value값
+                    const quizAnswer = quizInfo[currentIndex].answer;   //정답지의 정답
+                    const quizElement = quizWrap.querySelector(".quiz");
+                    const answerElement = quizWrap.querySelector(".answer");
+                    const descElement = quizWrap.querySelector(".desc");
+
+                    //사용자 정답과 정답지 정답을 비교
+                    if (userAnswer === quizAnswer) {
+                        quizElement.classList.add("good");
+                    } else {
+                        quizElement.classList.add("bad");
+                        answerElement.classList.remove("none");
+                    }
+                    descElement.classList.remove("none");
+                    quizConfirm.classList.add("none");
+                    quizNext.classList.remove("none");
+                } else {
+                    alert("정답을 선택해주세요!");
+                }
+            });
+
+            // 다음 문제 버튼을 클릭
+            quizNext.addEventListener("click", () => {
+                if (currentIndex < quizInfo.length - 1) {
+                    currentIndex++;             // 문제 번호 증가
+                    updateQuiz(currentIndex);   //퀴즈 반영
+                } else {
+                    alert("퀴즈가 종료되었습니다.");
+                }
+
+            });
+        };
+
+        //페이지가 로드된 후에 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            updateQuiz(currentIndex);
+        });
+
+    </script>
+</body>
+
+</html>

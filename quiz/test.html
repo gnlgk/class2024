@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>퀴즈 05</title>
     <link rel="stylesheet" href="assets/css/quiz.css">
+    <link rel="stylesheet" href="assets/css/default.min.css">
 </head>
 
 <body>
@@ -36,6 +37,8 @@
     </footer>
     <!-- footer -->
 
+    <script src="assets/js/highlight.min.js"></script>
+    <script> </script>
     <script>
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
@@ -47,16 +50,14 @@
                 type: "정보처리기능사",
                 question: "다음 코드의 결과값은 무엇인가요?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const arr = [100, 200, "javascript"];
 
     arr.push(400);
 
     console.log(arr[0]);
     console.log(arr[3]); 
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: ["100, 200",
                     "100, javascript",
                     "200, javascript",
@@ -69,11 +70,10 @@
                 type: "정보처리 기능사",
                 question: "'javascript'를 출력하는 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
-    const arr = [100, [200, 300], ["javascript", "jquery"]];
-}
-
-</code></pre>`,
+                <pre><code class="hljs">{
+    const arr = [100, [200, 300], 
+    ["javascript", "jquery"]];
+}</code></pre>`,
                 choices: [
                     "console.log(arr[1][0]);",
                     "console.log(arr[1][1]);",
@@ -88,13 +88,11 @@
                 type: "정보처리 기능사",
                 question: "400을 출력하는 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code  class="hljs">{
     const arr = [100, 200, [300, 400]];
 
     const [a, b, [x, y]] = arr;
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "console.log(y);",
                     "console.log(arr.y);",
@@ -109,16 +107,14 @@
                 type: "정보처리 기능사",
                 question: "400을 출력하는 값으로 빈칸에 들어가는 값이 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const obj = [
         { a: 100, b: 200, c: "javascript" }, 
         { a: 300, b: 400, c: "jquery" }
         ];
 
     console.log(___);
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "obj[0].b",
                     "obj[1].b",
@@ -133,15 +129,13 @@
                 type: "정보처리 기능사",
                 question: "객체펼침연산자에 관한 코드이다. merge1의 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const obj1 = { a: 100, b: 200, }
     const obj2 = { c: 300, d: 400, }
     const merge1 = { ...obj1, ...obj2 }
 
     console.log(merge1);   
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "a:100, b:200, c:300, d:400",
                     "(a:100, b:200, c:300, d:400)",
@@ -156,15 +150,13 @@
                 type: "정보처리 기능사",
                 question: "for in문이다. element의 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const arr = [100, 200, 300, 400, 500];
 
     for (let element in arr) {
         console.log(element);
     }
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "0, 1, 2, 3, 4",
                     "1, 2, 3, 4, 5",
@@ -179,15 +171,13 @@
                 type: "정보처리 기능사",
                 question: "element의 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const arr = [100, 200, 300, 400, 500];
 
     arr.map(function (element) {
         console.log(element);             
 });
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "0, 1, 2, 3, 4",
                     "[100, 200, 300, 400, 500]",
@@ -202,15 +192,13 @@
                 type: "정보처리 기능사",
                 question: "출력되는 a, b, c의 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const [a, b, c = "javascript"] = [100, 200];
 
     console.log(a);
     console.log(b);
     console.log(c);
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "a, b, c",
                     "100, 200",
@@ -225,15 +213,13 @@
                 type: "정보처리 기능사",
                 question: "출력되는 값으로 옳은 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     function numbers(a, b, c) {
         return c + b - a;
     };
     const nums = [100, 200, 300];
     console.log(numbers(...nums));
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "300",
                     "400",
@@ -248,7 +234,7 @@
                 type: "정보처리 기능사",
                 question: "출력되는 값이 다른 것은?",
                 code: `
-                <pre><code>{
+                <pre><code class="hljs">{
     const obj = {
         a: 100,
         b: 200,
@@ -258,9 +244,7 @@
     console.log(obj.hasOwnProperty("b")); 
     console.log(obj.hasOwnProperty("c")); 
     console.log(obj.hasOwnProperty("d")); 
-}
-
-</code></pre>`,
+}</code></pre>`,
                 choices: [
                     "a",
                     "b",
@@ -349,6 +333,7 @@
                 if (currentIndex < quizInfo.length - 1) {
                     currentIndex++;             // 문제 번호 증가
                     updateQuiz(currentIndex);   //퀴즈 반영
+                    hljs.highlightAll();
                 } else {
                     alert("퀴즈가 종료되었습니다.");
                 }
@@ -359,6 +344,7 @@
         //페이지가 로드된 후에 실행
         document.addEventListener("DOMContentLoaded", () => {
             updateQuiz(currentIndex);
+            hljs.highlightAll();
         });
 
     </script>

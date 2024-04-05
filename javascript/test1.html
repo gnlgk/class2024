@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>test1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+            overflow: auto;
+            background-color: #dacfcf;
+        }
+
+        #header {
+            width: 100%;
+        }
+
+        #header .container .logo {
+            height: 100px;
+            background-color: #ce7a6f;
+        }
+
+        #header .container .nav {
+            height: 100px;
+            background-color: #db8d83;
+        }
+
+        #main {
+            width: 100%;
+        }
+
+        #main .container {
+            display: flex;
+        }
+
+        #main .container .slider1 {
+            width: 30%;
+            height: 600px;
+            background-color: #947571;
+        }
+
+        #main .container .slider2 {
+            width: 70%;
+            height: 600px;
+        }
+
+        #main .container .slider2 .slider2-1 {
+            width: 100%;
+            height: 300px;
+            background-color: #885b55;
+        }
+
+        #main .container .slider2 .slider2-2 {
+            width: 100%;
+            height: 300px;
+            background-color: #ad5e54;
+        }
+
+        #footer {
+            height: 100px;
+        }
+
+        #footer .container {
+            background-color: #ff0000;
+        }
+
+        .container {
+            width: 1200px;
+            height: inherit;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="container">
+                <h1 class="logo"></h1>
+                <nav class="nav"></nav>
+            </div>
+        </header>
+        <main id="main">
+            <div class="container">
+                <article class="slider1"></article>
+                <article class="slider2">
+                    <div class="slider2-1"></div>
+                    <div class="slider2-2"></div>
+                </article>
+            </div>
+        </main>
+        <footer id="footer">
+            <div class="container"></div>
+        </footer>
+    </div>
+</body>
+
+</html>

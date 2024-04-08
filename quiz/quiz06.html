@@ -45,8 +45,84 @@
 
         // 문제 가져오기
         const fetchQuiz = () => {
-            fetch("");
+            fetch("https://gnlgk.github.io/class2024/json/gineungsaJC2005_02.json")
+                .then(res => res.json())
+                .then(items => {
+                    // console.log(items);
+                    quizInfo = items.map(item => {
+                        const formattedQuiz = {
+                            date: "2005년 2회",
+                            type: item.subject,
+                            question: item.question,
+                            answer: item.correct_answer,
+                            desc: item.desc,
+                            choices: item.incorrect_answers,
+                        }
+                        // 보기 가져오기
+                        const choices = [...item.incorrect_answers, item.correct_answer];
+
+                        for (let i = choices.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [choices[i], choices[j]] = [choices[j], choices[i]];
+                        }
+                        // 보기 추가하기
+                        formattedQuiz.choices = choices;
+
+                        // 결과값 출력
+                        return formattedQuiz;
+                    });
+                    // console.log(quizInfo);
+
+                    // 문제 출력
+                    updateQuiz();
+                });
+
         }
+
+        // 문제 출력
+        const updateQuiz = () => {
+            const quizArray = [];
+
+            quizInfo.forEach((quiz, index) => {
+                quizArray.push(`
+                    <div class="quiz">
+                        <div class="quiz__header">${quizInfo[index].date} ${quizInfo[index].type}</div>
+                        <div class="quiz__main">
+                            <div class="question">${index + 1}. ${quizInfo[index].question}</div>
+                            <div class="choices">
+                                <label for="choice1">
+                                    <input type="radio" id="choice1" name="choice" value="1">
+                                    <span>${quizInfo[index].choices[0]}</span>
+                                </label>
+                                <label for="choice2">
+                                    <input type="radio" id="choice2" name="choice" value="2">
+                                    <span>${quizInfo[index].choices[1]}</span>
+                                </label>
+                                <label for="choice3">
+                                    <input type="radio" id="choice3" name="choice" value="3">
+                                    <span>${quizInfo[index].choices[2]}</span>
+                                </label>
+                                <label for="choice4">
+                                    <input type="radio" id="choice4" name="choice" value="4">
+                                    <span>${quizInfo[index].choices[3]}</span>
+                                </label>
+                            </div>
+                            <div class="answer">${quizInfo[index].answer}</div>
+                            <div class="desc">${quizInfo[index].desc}</div>
+                        </div>
+                       
+                    </div>
+                `)
+            })
+
+            quizWrap.innerHTML = quizArray.join("");
+        }
+
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchQuiz();
+        });
+
     </script>
 </body>
 

@@ -47,28 +47,24 @@
 
         // 문제 가져오기
         const fetchQuiz = () => {
-            fetch("https://gnlgk.github.io/class2024/json/gineungsaJC2005_02.json")
+            fetch("https://webstoryboy.github.io/webstoryboy/w_json/gineungsaShort.json")
                 .then(res => res.json())
                 .then(items => {
                     // console.log(items);
                     quizInfo = items.map(item => {
                         const formattedQuiz = {
-                            date: "2005년 2회",
-                            type: item.subject,
+                            type: item.time,
                             question: item.question,
                             answer: item.correct_answer,
-                            desc: item.desc,
-                            choices: item.incorrect_answers
+                            desc: item.question_desc,
                         }
-                        // 보기 가져오기
-                        const choices = [...item.incorrect_answers, item.correct_answer];
 
-                        for (let i = choices.length - 1; i > 0; i--) {
-                            const j = Math.floor(Math.random() * (i + 1));
-                            [choices[i], choices[j]] = [choices[j], choices[i]];
-                        }
-                        // 보기 추가하기
-                        formattedQuiz.choices = choices;
+                        // for (let i = choices.length - 1; i > 0; i--) {
+                        //     const j = Math.floor(Math.random() * (i + 1));
+                        //     [choices[i], choices[j]] = [choices[j], choices[i]];
+                        // }
+                        // // 보기 추가하기
+                        // formattedQuiz.choices = choices;
 
                         // 결과값 출력
                         return formattedQuiz;
@@ -91,23 +87,8 @@
                         <div class="quiz__header">${quiz.date} ${quiz.type}</div>
                         <div class="quiz__main">
                             <div class="question">${index + 1}. ${quiz.question}</div>
-                            <div class="choices">
-                                <label for="choice${index}-1">
-                                    <input type="radio" id="choice${index}-1" name="choice-${index}" value="${quiz.choices[0]}">
-                                    <span>${quiz.choices[0]}</span>
-                                </label>
-                                <label for="choice${index}-2">
-                                    <input type="radio" id="choice${index}-2" name="choice-${index}" value="${quiz.choices[1]}">
-                                    <span>${quiz.choices[1]}</span>
-                                </label>
-                                <label for="choice${index}-3">
-                                    <input type="radio" id="choice${index}-3" name="choice-${index}" value="${quiz.choices[2]}">
-                                    <span>${quiz.choices[2]}</span>
-                                </label>
-                                <label for="choice${index}-4">
-                                    <input type="radio" id="choice${index}-4" name="choice-${index}" value="${quiz.choices[3]}">
-                                    <span>${quiz.choices[3]}</span>
-                                </label>
+                            <div class="input">
+                                <input type="text" placeholder="정답을 입력해주세요!">
                             </div>
                             <div class="answer none">${quiz.answer}</div>
                             <div class="desc none">${quiz.desc}</div>

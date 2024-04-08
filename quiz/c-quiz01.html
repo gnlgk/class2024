@@ -103,14 +103,19 @@
         // 정답 확인
         quizCheck.addEventListener("click", () => {
             const quizElements = document.querySelectorAll(".quiz");
+
             let correctCount = 0; //맞은 개수 시작
             let unansweredCount = 0;
 
 
+
+
             quizElements.forEach((quizElement, index) => {
-                const quizChecked = quizElement.querySelector(`input[name="choice-${index}"]:checked`); // 체크한 정답
+                const quizChecked = quizElement.querySelector(".input input")
                 const quizAnswer = quizElement.querySelector(".answer");
                 const quizDesc = quizElement.querySelector(".desc");
+
+                console.log(quizChecked);
 
                 if (quizChecked) {
                     const userAnswer = quizChecked.value;   //사용자 정답

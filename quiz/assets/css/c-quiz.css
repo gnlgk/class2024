@@ -1,0 +1,270 @@
+@font-face {
+    font-family: "nanumSquareNeo";
+    font-weight: 300;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Light.eot");
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Light.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Light.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Light.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Light.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "nanumSquareNeo";
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Regular.eot");
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Regular.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Regular.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Regular.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "nanumSquareNeo";
+    font-weight: 700;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Bold.eot");
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Bold.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Bold.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Bold.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "nanumSquareNeo";
+    font-weight: 800;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-ExtraBold.eot");
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-ExtraBold.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-ExtraBold.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-ExtraBold.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-ExtraBold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "nanumSquareNeo";
+    font-weight: 900;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Black.eot");
+    src: url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Black.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Black.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Black.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/websfont/nanumSquareNeo/nanumSquareNeo-Black.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "nanumSquareNeo";
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* quiz__wrap */
+.quiz__wrap {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quiz__wrap .quiz {
+    width: 500px;
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.quiz__header {
+    color: #696969;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz__header .count {
+    margin-top: 10px;
+    /* 위쪽 여백 조절 */
+    margin-left: auto;
+    /* 왼쪽 여백을 auto로 지정하여 오른쪽으로 이동 */
+    font-size: 30px;
+    /* 폰트 사이즈 지정 */
+    line-height: 1.4;
+    /* 줄 높이 지정 */
+    text-align: right;
+    /* 텍스트를 오른쪽으로 정렬 */
+}
+
+.quiz__main .question {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.quiz__main .questiond {
+    font-size: 30px;
+    line-height: 1.4;
+}
+
+.quiz__main .input input {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #7db5c5;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.quiz__main .answer {
+    border: 1px solid #7db5c5;
+    padding: 20px;
+    background-color: #cee0e5;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.quiz__main .answer::before {
+    content: '🍒정답 : ';
+}
+
+.quiz__main .desc {
+    border: 1px solid #7db5c5;
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.quiz__main .desc::before {
+    content: '🍸설명 : ';
+}
+
+.quiz__footer .confirm {
+    background-color: #3b575e;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    border: 0;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s;
+}
+
+.quiz__footer .confirm:hover {
+    background-color: transparent;
+    border: 1px dashed #3b575e;
+    color: #3b575e;
+    cursor: pointer;
+}
+
+.quiz__footer .next {
+    background-color: #32535c;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    border: 0;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s;
+}
+
+.quiz__footer .next:hover {
+    background-color: transparent;
+    border: 1px dashed #32535c;
+    color: #32535c;
+    cursor: pointer;
+}
+
+/* good, bad */
+.quiz__wrap .quiz.good {
+    position: relative;
+}
+
+.quiz__wrap .quiz.good::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border: 10px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 100;
+}
+
+.quiz__wrap .quiz.bad {
+    position: relative;
+}
+
+.quiz__wrap .quiz.bad::before {
+    content: '';
+    width: 150px;
+    height: 10px;
+    background-color: blue;
+    position: absolute;
+    left: 0px;
+    top: 80px;
+    border-radius: 30px;
+    transform: rotate(45deg);
+    z-index: 100;
+}
+
+.quiz__wrap .quiz.bad::after {
+    content: '';
+    width: 150px;
+    height: 10px;
+    background-color: blue;
+    position: absolute;
+    left: 0px;
+    top: 80px;
+    border-radius: 30px;
+    transform: rotate(-45deg);
+    z-index: 100;
+}
+
+.quiz__check {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 100px;
+    height: 100px;
+    line-height: 94px;
+    text-align: center;
+    background-color: #32535c;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    transition: all 0.3s;
+}
+
+.quiz__check:hover {
+    border: 5px solid transparent;
+    background-color: #32535c;
+    color: #fff;
+}

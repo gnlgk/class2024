@@ -78,6 +78,8 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 (https://github.com/websfont?tab=repositories)
 [아이콘](https://simpleicons.org/)
 (https://www.figma.com/file/pnxUji1RRaGRU23w5dS9TI/apple?type=design&node-id=0%3A1&mode=design&t=5Dd8uMF1lFRGLGMD-1)
+[CSS단축키정리](https://docs.emmet.io/cheat-sheet/)
+(https://webzz.tistory.com/380)
 # 사물함
 25
 

@@ -11,7 +11,7 @@
 <body>
     <header id="header">
         <h1>
-            <a href="index.html">Quiz</a>
+            <a href="c-quiz01.html">Quiz</a>
         </h1>
     </header>
     <!-- header -->
@@ -70,26 +70,30 @@
                             </div>
                         <div class="quiz__main">
                             <div class="question">${index + 1}. ${quiz.question}</div>
-                            <div class="questiond">${quiz.question_d}</div>
+                            ${quiz.question_d ? `<div class="questiond">${quiz.question_d}</div>` : ''}
                             <div class="input">
                                 <input type="text" placeholder="정답을 입력해주세요!">
                             </div>
                             <div class="answer none">${quiz.answer}</div>
                             <div class="desc none">${quiz.desc}</div>
-                            
                         </div>
                         <div class="quiz__footer">
-                        <button class="confirm none">정답 확인하기</button>
+                        <button class="confirm">정답 확인하기</button>
                         <button class="next none">다음 문제</button>
+                        <button class="finish">시험종료</button>
                     </div>
                     </div>
                 `
 
             quizWrap.innerHTML = quizWrapTag;
 
+            //undefined
+
+
             // 선택자
             const quizConfirm = quizWrap.querySelector(".confirm");
             const quizNext = quizWrap.querySelector(".next");
+            const quizFin = quizWrap.querySelector(".finish");
 
             // 정답 버튼을 클릭
             quizConfirm.addEventListener("click", () => {
@@ -97,8 +101,8 @@
                 const quizDesc = quizWrap.querySelector(".desc");
 
                 // 사용자가 입력한 정답
-                const userAnswer = quizWrap.querySelector(".input input").value;
-                const correctAnswer = quiz.answer;
+                const userAnswer = quizWrap.querySelector(".input input").value.toLowerCase();
+                const correctAnswer = quiz.answer.toLowerCase();
                 const quizElement = quizWrap.querySelector(".quiz");
 
                 if (userAnswer === correctAnswer) {
@@ -122,6 +126,10 @@
                     alert(`시험이 종료되었습니다.\n점수: ${score.toFixed(2)}\n맞은 갯수: ${correctCount}\n틀린 갯수: ${wrongCount}`);
                 }
             });
+            quizFin.addEventListener("click", () => {
+                const score = (correctCount / quizInfo.length) * 100;
+                alert(`시험이 종료되었습니다.\n점수: ${score.toFixed(2)}\n맞은 갯수: ${correctCount}\n틀린 갯수: ${wrongCount}`);
+            })
         }
 
         // 페이지가 로드된 후 실행

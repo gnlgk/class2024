@@ -30,6 +30,23 @@
         #header {
             width: 100%;
             display: flex;
+            position: relative;
+        }
+
+        #header::after {
+            content: '';
+            background-color: #fff;
+            width: 100%;
+            height: 0px;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            z-index: 1;
+            transition: all 400ms;
+        }
+
+        #header.on::after {
+            height: 168px;
         }
 
         #header .logo {
@@ -102,46 +119,47 @@
         .nav>ul {
             display: flex;
             justify-content: right;
-            /*오른쪽 정렬*/
-            margin-top: 30px;
+            margin-top: 59px;
             margin-left: auto;
             width: fit-content;
         }
 
+        .nav>ul>li {}
+
         .nav>ul>li>a {
+            background-color: #fff;
             padding: 10px 50px;
-            background-color: #b0b0b0;
             display: inline-block;
         }
 
         .nav>ul>li>a:hover {
-            background-color: #a1a1a1;
+            background-color: #ccc;
         }
 
         .nav>ul>li>ul {
             text-align: center;
-            /* 글씨 가운데 맞춤 */
             display: none;
+            position: relative;
+            z-index: 10;
         }
 
+        .nav>ul>li>ul>li {}
+
         .nav>ul>li>ul>li>a {
-            background-color: #c1c1c1;
+            background-color: #fff;
             padding: 10px;
-            width: 100%;
             display: inline-block;
+            width: 100%;
             box-sizing: border-box;
-            /* border 값 빼주기*/
         }
 
         .nav>ul>li>ul>li>a:hover {
-            background-color: #888;
+            background-color: #ddd;
         }
 
-        /* 자바스크립트 CSS */
         .nav>ul>li>ul {
             display: block;
-            height: 0px;
-            /* 168 */
+            height: 0;
             overflow: hidden;
             transition: all 600ms;
         }
@@ -215,27 +233,32 @@
         // });  //jquery 기본 형식
 
         // $(function () {
-        //     // 선택자
-        //     $(".nav>ul>li").mouseover(function () {
-        //         $(this).find(".submenu").stop().slideDown();
-        //     });
-        //     $(".nav>ul>li").mouseout(function () {
-        //         $(this).find(".submenu").stop().slideUp();
-        //     });
-        // });
+        //     $(".nav >ul >li").mouseover(function () {
+        //         $(".nav >ul >li>ul").stop().fadeIn(900);
+        //         $("#header").addClass("on");
+        //     })
+        //     $(".nav >ul >li").mouseout(function () {
+        //         $(".nav >ul>li >ul").stop().fadeOut(100);
+        //         $("#header").removeClass("on");
+        //     })
+        // })
     </script>
     <script>
         window.onload = function () {
-            const navList = document.querySelectorAll(".nav>ul>li");
+            let navList = document.querySelector(".nav ul");
 
-            navList.forEach(function (navItem) {
-                navItem.addEventListener("mouseover", function () {
-                    this.querySelector(".submenu").style.height = "168px";
-                });
-                navItem.addEventListener("mouseout", function () {
-                    this.querySelector(".submenu").style.height = "0px";
-                });
-            });
+            navList.addEventListener("mouseover", () => {
+                navList.querySelectorAll(".submenu").forEach(sub => {
+                    sub.style.height = "158px"
+                })
+                document.getElementById("header").classList.add("on");
+            })
+            navList.addEventListener("mouseout", () => {
+                navList.querySelectorAll(".submenu").forEach(sub => {
+                    sub.style.height = "0px"
+                })
+                document.getElementById("header").classList.remove("on");
+            })
         }
     </script>
 </body>

@@ -81,6 +81,8 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 (https://webzz.tistory.com/380)
 [웹스폰트](https://github.com/websfont?tab=repositories)
 [사진용량줄이기](https://compressjpeg.com/ko/)
+[디자인 미리캔버스](https://www.miricanvas.com/ko)
+[폰트를 웹폰트로 바꾸는 사이트](https://transfonter.org/)
 # 사물함
 25
 

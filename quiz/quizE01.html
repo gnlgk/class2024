@@ -564,10 +564,10 @@
                 const quizElement = quizPlay.querySelector(".quiz");
 
                 if(userAnswer === correctAnswer) {
-                    alert("정답");
+                    quizElement.classList.add("good");
                     correctCount++;
                 } else {
-                    alert("오답");
+                    quizElement.classList.add("bad");
                     quizAnswer.classList.remove("none");
                     wrongCount++;
                 }
@@ -607,7 +607,6 @@
             alert("수고하셨습니다!!");
         });
          
-
         // 페이지가 로드된 후 실행
         document.addEventListener("DOMContentLoaded", () => {
             fetchQuiz();

@@ -559,8 +559,8 @@
                 const quizDesc = quizPlay.querySelector(".quiz .desc");
 
                 //사용자정답
-                const userAnswer = quizPlay.querySelector(".quiz .input input").value.toLowerCase();
-                const correctAnswer = quiz.answer.toLowerCase();
+                const userAnswer = quizPlay.querySelector(".quiz .input input").value.toLowerCase().replace(/\s/g, '');
+                const correctAnswer = quiz.answer.toLowerCase().replace(/\s/g, '');
                 const quizElement = quizPlay.querySelector(".quiz");
 
                 if (userAnswer === correctAnswer) {

@@ -11,7 +11,7 @@
 
 <body>
     <div id="quiz__wrap">
-        <div class="quiz__start">
+        <div class="quiz__start none">
             <div class="title">
                 <span></span>
             </div>
@@ -28,8 +28,8 @@
             </div>
         </div>
         <!-- quiz__start -->
-        <div class="quiz__play none">
-           
+        <div class="quiz__play">
+
         </div>
         <!-- quiz__play -->
         <div class="quiz__finish none">
@@ -482,7 +482,7 @@
         const quizQuestion = document.querySelector(".quiz__play .question");
 
         //날짜 가져오기
-        document.addEventListener("DOMContentLoaded",()=>{
+        document.addEventListener("DOMContentLoaded", () => {
             const today = new Date();
 
             const year = today.getFullYear();
@@ -492,14 +492,14 @@
             const spanSElement = document.querySelector(".title span");
             const spanFElement = document.querySelector(".date span");
 
-            spanSElement.textContent = `${year}. ${month<10 ? '0' + month : month}. ${day < 10 ? '0' + day : day}`;
-            spanFElement.textContent = `${year}. ${month<10 ? '0' + month : month}. ${day < 10 ? '0' + day : day}`;
-       
+            spanSElement.textContent = `${year}. ${month < 10 ? '0' + month : month}. ${day < 10 ? '0' + day : day}`;
+            spanFElement.textContent = `${year}. ${month < 10 ? '0' + month : month}. ${day < 10 ? '0' + day : day}`;
+
         });
 
         //퀴즈 시작하기
-        quizSbtn.addEventListener("click",()=>{
-                       
+        quizSbtn.addEventListener("click", () => {
+
             quizStart.classList.add("none");
             quizPlay.classList.remove("none");
         });
@@ -508,23 +508,23 @@
         let correctCount = 0;
         let wrongCount = 0;
 
-         // 변수
-         let currentIndex = 0; // 현재 문제 값
+        // 변수
+        let currentIndex = 0; // 현재 문제 값
 
         //문제가져오기
         const fetchQuiz = () => {
             fetch("https://gnlgk.github.io/class2024/json/sanupgisa.json")
-            .then(res => res.json())
-            .then(items => {
-                quizInfo = items.map(item => {
-                    return {
-                        question: item.question,
-                        answer: item.correct_answer,
-                        desc: item.desc,
-                    };
+                .then(res => res.json())
+                .then(items => {
+                    quizInfo = items.map(item => {
+                        return {
+                            question: item.question,
+                            answer: item.correct_answer,
+                            desc: item.desc,
+                        };
+                    });
+                    updateQuiz(currentIndex);
                 });
-                updateQuiz(currentIndex);
-            });
         };
 
         // 문제 출력
@@ -547,14 +547,14 @@
                     </div>
                 `
 
-                quizPlay.innerHTML = quizWrapTag;
-             
+            quizPlay.innerHTML = quizWrapTag;
+
             // 선택자
             const quizConfirm = quizPlay.querySelector(".quiz .play_btn .confirm");
             const quizNext = quizPlay.querySelector(".quiz .play_btn .next");
 
             //정답
-            quizConfirm.addEventListener("click",()=>{
+            quizConfirm.addEventListener("click", () => {
                 const quizAnswer = quizPlay.querySelector(".quiz .answer");
                 const quizDesc = quizPlay.querySelector(".quiz .desc");
 
@@ -563,7 +563,7 @@
                 const correctAnswer = quiz.answer.toLowerCase();
                 const quizElement = quizPlay.querySelector(".quiz");
 
-                if(userAnswer === correctAnswer) {
+                if (userAnswer === correctAnswer) {
                     quizElement.classList.add("good");
                     correctCount++;
                 } else {
@@ -577,7 +577,7 @@
             });
 
             //다음문제
-            quizNext.addEventListener("click",()=>{
+            quizNext.addEventListener("click", () => {
                 currentIndex++;
                 if (currentIndex < quizInfo.length) {
                     updateQuiz(currentIndex);
@@ -594,19 +594,19 @@
                     finishCount.textContent = `정답 : ${correctCount} 개`;
                 }
             });
-        } 
-     
+        }
+
         //퀴즈 재시작하기
-        quizRestart.addEventListener("click",()=>{                     
-                       quizFinish.classList.add("none");
-                       quizStart.classList.remove("none");
-                   });
+        quizRestart.addEventListener("click", () => {
+            quizFinish.classList.add("none");
+            quizStart.classList.remove("none");
+        });
 
         //퀴즈 종료하기
-        quizEbtn.addEventListener("click",()=>{
+        quizEbtn.addEventListener("click", () => {
             alert("수고하셨습니다!!");
         });
-         
+
         // 페이지가 로드된 후 실행
         document.addEventListener("DOMContentLoaded", () => {
             fetchQuiz();

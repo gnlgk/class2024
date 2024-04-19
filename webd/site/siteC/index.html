@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        #wrap {
+            width: 1000px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #header {
+            width: 20%;
+            height: 650px;
+        }
+
+        .logo {
+            height: 100px;
+            background-color: #dd4646;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .logo a {
+            margin-top: 30px;
+        }
+
+        .nav {
+            height: 550px;
+            background-color: #855e5e;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav>ul {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav>ul>li>a {
+            background-color: #e4c6c6;
+            padding: 10px 40px;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+
+        .nav>ul>li>a:hover {
+            background-color: #a88989;
+        }
+
+        .nav>ul>li>ul {
+            position: absolute;
+            right: -160px;
+            top: -35px;
+            display: none;
+        }
+
+        .nav>ul>li>ul>li {
+            text-align: center;
+            width: 160px;
+        }
+
+        .nav>ul>li>ul>li>a {
+            background-color: #a88989;
+            padding: 10px 30px;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav>ul>li>ul>li>a::after {
+            content: '';
+            width: 160px;
+            height: 200px;
+            background-color: #a88989;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #total {
+            width: 80%;
+        }
+
+        #slider {
+
+            height: 350px;
+            background-color: #a75f5f;
+        }
+
+        .sliderWrap {
+            position: relative;
+        }
+
+        .sliderWrap .slider {
+            width: 100%;
+            height: 350px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .sliderWrap .slider:nth-child(1) {
+            background-image: url(../siteC/images/slider01.jpg);
+        }
+
+        .sliderWrap .slider:nth-child(2) {
+            background-image: url(../siteC/images/slider02.jpg);
+        }
+
+        .sliderWrap .slider:nth-child(3) {
+            background-image: url(../siteC/images/slider03.jpg);
+        }
+
+        #main {
+            height: 200px;
+            display: flex;
+        }
+
+        .notice {
+            width: 33.333%;
+            height: 200px;
+            background-color: #caa7a7;
+        }
+
+        .title a {
+            background-color: #fff;
+            padding: 5px;
+            margin: 20px 20px;
+            text-align: center;
+        }
+
+        .title a:hover {
+            text-decoration: underline;
+        }
+
+        .cont {
+            padding: 15px;
+        }
+
+        .cont ul li a {
+            padding: 2px;
+            display: inline-block;
+            text-decoration: underline;
+        }
+
+        .cont ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .gallery {
+            width: 33.333%;
+            height: 200px;
+            background-color: #993232;
+        }
+
+        .gtitle a {
+            background-color: #fff;
+            padding: 5px;
+            margin: 20px 20px;
+            text-align: center;
+        }
+
+        .gtitle a:hover {
+            text-decoration: underline;
+        }
+
+        .gcont {
+            padding: 15px;
+        }
+
+        .gcont ul {
+            display: flex;
+        }
+
+        .gcont ul li a:hover {
+            opacity: 0.5;
+        }
+
+        .gcont ul li img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .banner {
+            width: 33.333%;
+            height: 200px;
+            background-color: #331212;
+        }
+
+        #footer {
+            display: flex;
+        }
+
+        .footer1 {
+            width: 20%;
+            height: 100px;
+            background-color: #791414;
+        }
+
+        .footer2 {
+            width: 80%;
+        }
+
+        .footer2-1 {
+            width: 100%;
+            height: 50px;
+            background-color: #881e1e;
+        }
+
+        .footer2-2 {
+            width: 100%;
+            height: 50px;
+            background-color: #b18484;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1 class="logo"><a href="#">남도맛기행 축제</a></h1>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">협회소개</a>
+                        <ul>
+                            <li><a href="#">인사말</a></li>
+                            <li><a href="#">명인</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">행사안내</a>
+                        <ul>
+                            <li><a href="#">요리경연대회</a></li>
+                            <li><a href="#">전시참가</a></li>
+                            <li><a href="#">참가신청</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">홍보마당</a>
+                        <ul>
+                            <li><a href="#">축제소식</a></li>
+                            <li><a href="#">보도자료</a></li>
+                            <li><a href="#">레시피</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">회원마당</a>
+                        <ul>
+                            <li><a href="#">Q&A</a></li>
+                            <li><a href="#">사진갤러리</a></li>
+                            <li><a href="#">공지사항</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </header>
+        <section id="total">
+            <article id="slider">
+                <div class="sliderWrap">
+                    <div class="slider"></div>
+                    <div class="slider"></div>
+                    <div class="slider"></div>
+                </div>
+            </article>
+            <main id="main">
+                <div class="notice">
+                    <div class="title">
+                        <a href="#">공지사항</a>
+                    </div>
+                    <div class="cont">
+                        <ul>
+                            <li><a href="#">맛집탐방기행</a></li>
+                            <li><a href="#">남도의 기적</a></li>
+                            <li><a href="#">요리경연대회 결과</a></li>
+                            <li><a href="#">장인의 요리 대결</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <div class="gtitle"><a href="#">갤러리</a></div>
+                    <div class="gcont">
+                        <ul>
+                            <li><a href="#"><img src="../siteC/images/gallery01.jpg" alt="이미지1"></a></li>
+                            <li><a href="#"><img src="../siteC/images/gallery02.jpg" alt="이미지2"></a></li>
+                            <li><a href="#"><img src="../siteC/images/gallery03.jpg" alt="이미지3"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="banner"></div>
+            </main>
+            <footer id="footer">
+                <div class="footer1"></div>
+                <div class="footer2">
+                    <div class="footer2-1"></div>
+                    <div class="footer2-2"></div>
+                </div>
+
+            </footer>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <script>
+            $(function () {
+                $(".nav>ul>li").mouseover(function () {
+                    $(this).find(">ul").stop().fadeIn();
+                });
+                $(".nav>ul>li").mouseout(function () {
+                    $(this).find(">ul").stop().fadeOut();
+                });
+
+                let currentIndex = 0;
+
+                setInterval(() => {
+                    nextIndex = (currentIndex + 1) % 3
+                    $(".slider").eq(currentIndex).stop().fadeIn(500);
+                    $(".slider").eq(nextIndex).stop().fadeOut(500);
+                    currentIndex = nextIndex;
+                }, 1000);
+            });
+        </script>
+    </div>
+</body>
+
+</html>

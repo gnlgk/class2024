@@ -187,6 +187,14 @@ li {
     border-bottom: 1px dashed #dcdcdc;
 }
 
+.main__menu h2 {
+    font-size: 20px;
+    font-family: 'GmarketSans';
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
 .main__menu ul li a {
     color: #071169;
     line-height: 1.7;

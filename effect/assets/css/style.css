@@ -8,7 +8,7 @@
 
 a {
     text-decoration: none;
-    color: #dcb8b8;
+    color: #00A7FD;
 }
 
 li {
@@ -16,7 +16,7 @@ li {
 }
 
 body {
-    background-color: #272727;
+    background-color: #111;
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -38,13 +38,13 @@ body {
 }
 
 .header__inner {
-    border-top: 2px solid #dcb8b8;
-    border-bottom: 1px solid #dcb8b8;
+    border-top: 2px solid #00A7FD;
+    border-bottom: 1px solid #00A7FD;
 }
 
 .header__inner h1 {
     font-family: "Montserrat";
-    color: #dcb8b8;
+    color: #00A7FD;
     font-weight: 300;
     font-size: 18px;
     padding: 10px 0;
@@ -57,17 +57,10 @@ body {
     font-size: normal;
 }
 
-#main {}
-
-.main__inner {}
-
 #footer {
     width: 100%;
-    height: 60px;
     /* background-color: rgba(255, 255, 255, 0.1); */
 }
-
-.footer__inner {}
 
 .footer__inner ul {
     display: flex;
@@ -78,11 +71,16 @@ body {
 }
 
 .footer__inner ul li a {
-    border: 1px solid #dcb8b8;
+    border: 1px solid #00A7FD;
     padding: 3px 10px;
     border-radius: 50px;
-    color: #dcb8b8;
+    color: #00A7FD;
     display: inline-block;
     font-family: "Montserrat";
     line-height: 1;
+}
+
+.footer__inner ul li.active a {
+    background-color: #00A7FD;
+    color: #111;
 }

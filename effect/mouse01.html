@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Mandali&family=Mitr:wght@200;300;400;500;600;700&family=Ojuju:wght@200..800&family=Sora:wght@100..800&family=Tilt+Neon&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            cursor: none;
+        }
+
+        .main__inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main__inner p {
+            color: #d2d2d2;
+            padding: 10vw;
+            font-size: 2.1vmax;
+            text-align: center;
+            font-family: "Sora", sans-serif;
+            font-weight: 300;
+        }
+
+        .main__inner p span {
+            font-style: normal;
+            font-weight: 800;
+        }
+
+        .main__info {
+            position: absolute;
+            left: 16px;
+            top: 60px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .main__info ul {
+            flex-wrap: wrap;
+            display: flex;
+
+        }
+
+        .main__info ul li {
+            font-family: "Montserrat";
+            color: #d2d2d2;
+            width: 25%;
+            text-transform: uppercase;
+            font-weight: 200;
+        }
+
+        .cursor {
+            width: 100px;
+            height: 100px;
+            background-color: #00a9fd77;
+            border: 1px solid #00a9fd55;
+            backdrop-filter: blur(5px);
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            border-radius: 50%;
+            z-index: 10000;
+            user-select: none;
+            pointer-events: none;
+            transition:
+                transform 0.5s,
+                background-color 0.3s,
+                border 0.3s,
+                border-radius 0.3s;
+        }
+
+        .cursor::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor::after {
+            content: '';
+            width: 1px;
+            height: 20px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.span1 {
+            background-color: #fd000077;
+            border: 1px solid #fd000055;
+        }
+
+        .cursor.span1::before {
+            background-color: #fd0000;
+        }
+
+        .cursor.span1::after {
+            background-color: #fd0000;
+        }
+
+        .cursor.span2 {
+            background-color: #fdba0077;
+            border: 1px solid #fdba0055;
+            transform: scale(0.5);
+        }
+
+        .cursor.span2::before {
+            background-color: #fdba00;
+        }
+
+        .cursor.span2::after {
+            background-color: #fdba00;
+        }
+
+        .cursor.span3 {
+            background-color: #5dfd0077;
+            border: 1px solid #5dfd0055;
+            border-radius: 1%;
+            transform: rotate(720deg) sclae(2);
+        }
+
+        .cursor.span3::before {
+            background-color: #5dfd00;
+        }
+
+        .cursor.span3::after {
+            background-color: #5dfd00;
+        }
+
+        .cursor.span4 {
+            background-color: #1900fd77;
+            border: 1px solid #1900fd55;
+            transform: perspective(1000px) rotateX(180deg) rotateY(360deg) scale(0.5);
+        }
+
+        .cursor.span4::before {
+            background-color: #00a9fd;
+        }
+
+        .cursor.span4::after {
+            background-color: #00a9fd;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="header__inner">
+                <h1>Mouse Effect <em>01</em></h1>
+            </div>
+        </header>
+        <!-- header -->
+
+        <main id="main">
+            <div class="cursor"></div>
+            <div class="main__inner">
+                <p>
+                    JavaScript is a <span>programming</span> language commonly used for creating interactive effects
+                    within
+                    web
+                    browsers. Originally created by Brendan Eich while he was working at Netscape Communications
+                    Corporation, <span>JavaScript</span> has since become one of the core technologies of the World Wide
+                    Web
+                    alongside HTML and CSS. It enables developers to create dynamic content, control multimedia, animate
+                    images, validate form data, and much more within web pages. <span>JavaScript</span> is versatile and
+                    can
+                    be used
+                    for both front-end development (client-side) and back-end <span>development</span> (server-side)
+                    with platforms
+                    like Node.js.
+                </p>
+            </div>
+            <div class="main__info">
+                <ul>
+                    <li>clientX <span class="clientX">0</span></li>
+                    <li>offsetX <span class="offsetX">0</span></li>
+                    <li>pageX <span class="pageX">0</span></li>
+                    <li>screenX <span class="screenX">0</span></li>
+                </ul>
+            </div>
+        </main>
+        <!-- main -->
+
+        <footer id="footer">
+            <div class="footer__inner">
+                <nav>
+                    <ul>
+                        <li class="active"><a href="mouse01.html">01</a></li>
+                        <li><a href="mouse02.html">02</a></li>
+                        <li><a href="mouse03.html">03</a></li>
+                        <li><a href="mouse04.html">04</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+        <!-- footer -->
+
+    </div>
+    <!-- wrap -->
+
+    <script>
+        //info
+        window.addEventListener("mousemove", function (event) {
+            document.querySelector(".clientX").innerText = event.clientX;
+            document.querySelector(".offsetX").innerText = event.offsetX;
+            document.querySelector(".pageX").innerText = event.pageX;
+            document.querySelector(".screenX").innerText = event.screenX;
+
+            // clientX에 숫자 100을 넣어보세요  
+            // offsetX 숫자 200을 넣어보세요
+            // pageX 숫자 300을 넣어보세요
+            // screenX 숫자 400을 넣어보세요
+        });
+
+        //mouse
+        const cursor = document.querySelector(".cursor");
+
+        window.addEventListener("mousemove", function (e) {
+            cursor.style.left = (e.clientX - 50) + "px";
+            cursor.style.top = (e.clientY - 50) + "px";
+
+        });
+
+        for (let i = 1; i < (".main__inner span").length; i++) {
+            document.querySelector(`.main__inner span:nth-child(${i})`).addEventListener("mouseover", function () {
+                cursor.classList.add("span" + i);
+            });
+            document.querySelector(`.main__inner span:nth-child(${i})`).addEventListener("mouseout", function () {
+                cursor.classList.remove("span" + i);
+            });
+        };
+
+        // const fSpan = document.querySelectorAll(".main__inner span");
+
+        // fSpan.forEach(function (e, i) {
+        //     e.addEventListener("mouseover", () => {
+        //         cursor.classList.add("span" + (i + 1));
+        //     });
+        //     e.addEventListener("mouseout", () => {
+        //         cursor.classList.remove("span" + (i + 1));
+        //     });
+        // });
+
+    </script>
+</body>
+
+</html>

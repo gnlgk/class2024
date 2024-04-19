@@ -28,10 +28,12 @@
             </div>
         </div>
         <!-- quiz__start -->
+
         <div class="quiz__play">
 
         </div>
         <!-- quiz__play -->
+
         <div class="quiz__finish none">
             <div class="date">
                 <span></span>
@@ -49,11 +51,14 @@
             </div>
         </div>
         <!-- quiz__finish -->
+
         <div class="quiz__bg">
             <svg id="canvas"></svg>
         </div>
     </div>
+
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+
     <script type="module">
         import { SVG } from "https://cdn.skypack.dev/@svgdotjs/svg.js@3.1.1";
         import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.1";
@@ -468,6 +473,7 @@
             return blobWrapper.path(spline(points, 1, true)).fill("#000");
         }
     </script>
+
     <script>
         //선택자
         const quizWrap = document.querySelector(".quiz__wrap");

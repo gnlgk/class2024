@@ -42,19 +42,19 @@ body {
     border-bottom: 1px solid #00A7FD;
 }
 
-.header__inner h1 {
+.header__inner h1 a {
     font-family: "Montserrat";
     color: #00A7FD;
     font-weight: 300;
     font-size: 18px;
     padding: 10px 0;
     line-height: 1;
-
 }
 
 .header__inner em {
     font-weight: 600;
-    font-size: normal;
+    font-size: 18px;
+    color: #00A7FD;
 }
 
 #footer {

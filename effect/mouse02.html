@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mouse Effect</title>
-    <link rel="stylesheet" href="assets/css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Black+Ops+One&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Concert+One&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Mandali&family=Mitr:wght@200;300;400;500;600;700&family=Mochiy+Pop+One&family=Ojuju:wght@200..800&family=Orbitron:wght@400..900&family=Righteous&family=Sora:wght@100..800&family=Tilt+Neon&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/mouse.css">
 
     <style>
         .main__inner {
@@ -19,11 +19,12 @@
 
         .main__inner p {
             color: #d2d2d2;
-            font-size: 20vmax;
+            font-size: 17vmax;
             text-align: center;
             font-family: "Orbitron", sans-serif;
             font-weight: 1000;
             margin-left: -10vw;
+            letter-spacing: -1vw;
         }
 
         .main__info {
@@ -91,60 +92,34 @@
         }
 
         .cursor.span1 {
-            background-color: #fd000077;
+            background-color: transparent;
             border: 1px solid #fd000055;
+            transform: rotate(720deg) scale(2);
         }
 
-        .cursor.span1::before {
-            background-color: #fd0000;
-        }
-
+        .cursor.span1::before,
         .cursor.span1::after {
             background-color: #fd0000;
         }
 
-        .cursor.span2 {
-            background-color: #fdba0077;
-            border: 1px solid #fdba0055;
-            transform: scale(0.5);
-        }
-
-        .cursor.span2::before {
-            background-color: #fdba00;
-        }
-
-        .cursor.span2::after {
-            background-color: #fdba00;
-        }
-
-        .cursor.span3 {
-            background-color: #5dfd0077;
-            border: 1px solid #5dfd0055;
-            border-radius: 1%;
-            transform: rotate(720deg) scale(2);
-        }
-
-        .cursor.span3::before {
-            background-color: #5dfd00;
-        }
-
-        .cursor.span3::after {
-            background-color: #5dfd00;
-        }
-
-        .cursor.span4 {
+        .cursor.span5 {
             background-color: #1900fd77;
             border: 1px solid #1900fd55;
-            border-radius: 1%;
-            transform: rotate(720deg) scale(2);
+            border-radius: 20%;
+            transform: skew(90deg, 90deg);
         }
 
-        .cursor.span4::before {
-            background-color: #00a9fd;
+        .cursor.span5::before,
+        .cursor.span5::after {
+            background-color: #1900fd;
         }
 
-        .cursor.span4::after {
-            background-color: #00a9fd;
+        .j.active {
+            color: red;
+        }
+
+        .s.active {
+            color: blue;
         }
     </style>
 
@@ -163,7 +138,8 @@
             <div class="cursor"></div>
             <div class="main__inner">
                 <p>
-                    JavaScript
+                    <span class="j">J</span><span>a</span><span>v</span><span>a</span>
+                    <span class="s">S</span><span>c</span><span>r</span><span>i</span><span>p</span><span>t</span>
                 </p>
             </div>
             <div class="main__info">
@@ -187,6 +163,11 @@
                         <li><a href="mouse04.html">04</a></li>
                     </ul>
                 </nav>
+                <div class="link">
+                    <ul>
+                        <li><a href="parallax01.html">parallax</a></li>
+                    </ul>
+                </div>
             </div>
         </footer>
         <!-- footer -->
@@ -196,7 +177,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script>
-        //info
+        // info
         window.addEventListener("mousemove", function (event) {
             document.querySelector(".clientY").innerText = event.clientY;
             document.querySelector(".offsetY").innerText = event.offsetY;
@@ -204,8 +185,35 @@
             document.querySelector(".screenY").innerText = event.screenY;
         });
 
+        // mouse
         document.addEventListener("mousemove", function (e) {
-            gsap.to(".cursor", { duration: 0.5, left: e.clientX - 50, top: e.clientY - 50 });
+            gsap.to(".cursor", { duration: 0.3, left: e.clientX - 10, top: e.clientY - 10 })
+        });
+
+        // cursor
+        const cursor = document.querySelector(".cursor");
+
+        for (let i = 1; i <= document.querySelectorAll(".main__inner span").length; i++) {
+            document.querySelector(".main__inner span:nth-child(" + i + ")").addEventListener("mouseover", function () {
+                cursor.classList.add("span" + i);
+            });
+            document.querySelector(".main__inner span:nth-child(" + i + ")").addEventListener("mouseout", function () {
+                cursor.classList.remove("span" + i);
+            });
+        };
+
+        document.querySelector(".s").addEventListener("mouseover", () => {
+            document.querySelector(".s").classList.add("active");
+        });
+        document.querySelector(".s").addEventListener("mouseout", () => {
+            document.querySelector(".s").classList.remove("active");
+        });
+
+        document.querySelector(".j").addEventListener("mouseover", () => {
+            document.querySelector(".j").classList.add("active");
+        });
+        document.querySelector(".j").addEventListener("mouseout", () => {
+            document.querySelector(".j").classList.remove("active");
         });
 
     </script>

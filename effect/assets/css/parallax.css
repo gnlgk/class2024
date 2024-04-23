@@ -37,8 +37,6 @@ body.bg2 {
     position: relative;
 }
 
-.header__inner h1 {}
-
 .header__inner h1 a {
     font-family: "Mulish", sans-serif;
     font-weight: 200;

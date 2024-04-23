@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/parallax.css">
     <style>
-        .main__inner {}
-
         .main__inner section {
             width: 100%;
             height: 100vh;
@@ -309,7 +307,6 @@
         });
 
         // 05 : 텍스트 애니메이션
-
         const ani5 = gsap.timeline();
 
         ani5.to("#section05 .t1", { xPercent: 300 }, "text")
@@ -329,7 +326,6 @@
         });
 
         // 06 : 텍스트 확대하기
-
         const ani6 = gsap.timeline();
 
         ani6.to("#section06 .text", { scale: 60, duration: 2, rotation: 90 })
@@ -347,7 +343,6 @@
         });
 
         // 07 : 텍스트 제자리 애니메이션
-
         const ani7 = gsap.timeline();
 
         ani7.from("#section07 .t1", { autoAlpha: 0, duration: 1, y: 50 }, "+=1")
@@ -370,7 +365,6 @@
         });
 
         // 08 : 텍스트 제자리 애니메이션
-
         const ani8 = gsap.timeline();
 
         ani8.from("#section08 .t1", { x: innerWidth * 1 })
@@ -390,7 +384,6 @@
         });
 
         // 09
-
         const ani9 = gsap.timeline();
 
         ani9.from("#section09 .t1", { autoAlpha: 0, x: innerWidth * 1, rotation: 360, scale: 5.5 }, "a")

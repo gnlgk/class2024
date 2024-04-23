@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test1</title>
     <style>
         * {
@@ -120,6 +120,19 @@
             <div class="container"></div>
         </footer>
     </div>
+    <script>
+        let array = [1, 2, 5, 7, 6, 9, 8, 14, 50];
+
+        function solution(array) {
+            var result = 0;
+            let Array = [];
+            Array = array.sort((a, b) => a - b);
+            console.log(Array);
+            result = Array[(Math.floor(array.length / 2))];
+            return result;
+        }
+        solution(array);
+    </script>
 </body>
 
 </html>

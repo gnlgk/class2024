@@ -19,6 +19,10 @@ body {
     background-color: #403DD3;
 }
 
+body.bg2 {
+    background-color: #5F936B;
+}
+
 /* header */
 #header {
     position: fixed;
@@ -64,4 +68,28 @@ body {
     background-size: 12px;
     background-repeat: no-repeat;
     background-position: right 8px center;
+}
+
+/* footer__inner */
+.footer__inner nav {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    font-family: "Gothic A1", sans-serif;
+}
+
+.footer__inner nav ul {
+    display: flex;
+}
+
+.footer__inner nav ul li a {
+    margin-right: 10px;
+    padding: 6px 10px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.footer__inner nav ul li.active a {
+    text-emphasis: triangle;
 }

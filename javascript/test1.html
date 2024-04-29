@@ -100,21 +100,19 @@
         </footer>
     </div>
     <script>
+        {
+            let num = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-        const n = 10;
-
-        function solution(n) {
-            var Array = [];
-            var result = [];
-            for (i = 1; i <= n; i = i + 2) {
-                if (i % 2 === 1) {
-                    Array[i - 1] = i;
+            for (let i = 0; i <= 9; i++) {
+                switch (num[i] % 2) {
+                    case 1:
+                        console.log(num[i]);
+                        break;
+                    default:
+                        console.log("*");
                 }
-                result = Array.filter(item => item !== null);
             }
-            return console.log(result);
         }
-        solution(n);
     </script>
 </body>
 

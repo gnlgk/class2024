@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* header */
+        #header {
+            width: 200px;
+        }
+
+        .logo {
+            width: 100%;
+            height: 150px;
+            background-color: #a48fcc;
+            padding: 50px 0;
+        }
+
+        .logo a {
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .nav {
+            width: 100%;
+            height: 650px;
+            background-color: #7a2a2a;
+        }
+
+        .nav>ul {
+            padding: 10px;
+        }
+
+        .nav>ul>li {}
+
+        .nav>ul>li>a {
+            width: 100%;
+            background-color: #aaa;
+            padding: 10px 30px;
+            display: inline-block;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .nav>ul>li>a:hover {
+            background-color: #bbb;
+        }
+
+        .nav>ul>li>ul {
+            border: 1px solid #000;
+            display: none;
+        }
+
+        .nav>ul>li>ul>li {}
+
+        .nav>ul>li>ul>li>a {
+            width: 100%;
+            background-color: #ccc;
+            padding: 10px 30px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav>ul>li>ul>li>a:hover {
+            background-color: #ddd;
+        }
+
+        /* main */
+        #main {
+            width: 400px;
+        }
+
+        .notice {
+            width: 100%;
+            height: 350px;
+            background-color: #943a3a;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .cont {}
+
+        .cont>ul {}
+
+        .cont>ul>li {
+            display: flex;
+        }
+
+        .cont>ul>li>a {
+            text-decoration: underline;
+            background-color: #fff;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        .cont>ul>li span {
+            background-color: #7c1717;
+        }
+
+        .gallery {
+            width: 100%;
+            height: 350px;
+            background-color: #a15858;
+            padding: 20px;
+        }
+
+        .title2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .images>ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .images>ul>li {
+            text-align: center;
+        }
+
+        .images>ul>li>a {
+            width: 100px;
+            height: 100px;
+        }
+
+        .images>ul>li>span {}
+
+        .banner {
+            width: 100%;
+            height: 100px;
+            background-color: #7c1717;
+        }
+
+        /* sliders */
+        #sliders {
+            width: calc(100% - 600px);
+            height: 800px;
+            overflow: hidden;
+        }
+
+        .sliderWrap {
+            flex-wrap: wrap;
+        }
+
+        .sliderWrap .slider {
+            width: 100%;
+            height: 800px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .sliderWrap .slider:nth-child(1) {
+            background-image: url(images/slider01.jpg);
+        }
+
+        .sliderWrap .slider:nth-child(2) {
+            background-image: url(images/slider02.jpg);
+        }
+
+        .sliderWrap .slider:nth-child(3) {
+            background-image: url(images/slider03.jpg);
+        }
+
+        /* footer */
+        #footer {
+            width: 100%;
+            display: flex;
+        }
+
+        .footer1 {
+            width: 200px;
+            height: 100px;
+            background-color: #a85151;
+        }
+
+        .footer2 {
+            width: calc(100% - 500px);
+            height: 100px;
+            background-color: #694848;
+        }
+
+        .footer3 {
+            width: 300px;
+            height: 100px;
+            background-color: #5e1414;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1 class="logo"><a href="#">역사박물관</a></h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">박물관 소개</a>
+                        <ul>
+                            <li><a href="#">인사말</a></li>
+                            <li><a href="#">박물관연혁</a></li>
+                            <li><a href="#">유물현황</a></li>
+                            <li><a href="#">관람안내</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">전시</a>
+                        <ul>
+                            <li><a href="#">선사시대</a></li>
+                            <li><a href="#">삼국시대</a></li>
+                            <li><a href="#">조선시대</a></li>
+                            <li><a href="#">근대시대</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">연구</a>
+                        <ul>
+                            <li><a href="#">생활유적</a></li>
+                            <li><a href="#">분묘유적</a></li>
+                            <li><a href="#">생산유적</a></li>
+                            <li><a href="#">통신유적</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">교육</a>
+                        <ul>
+                            <li><a href="#">문화행사</a></li>
+                            <li><a href="#">진로체험</a></li>
+                            <li><a href="#">외부교육</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- header -->
+
+        <main id="main">
+            <div class="notice">
+                <div class="title">공지사항</div>
+                <div class="cont">
+                    <ul>
+                        <li><a href="#">대한민국역사박물관 자료 </a> <span>2024.04.26</span></li>
+                        <li><a href="#">체험관 임시 휴관 안내</a> <span>2024.04.26</span></li>
+                        <li><a href="#">자료공개구입 예정자료 목록공개</a> <span>2024.04.26</span></li>
+                        <li><a href="#">비상진료에 따른 병·의원 이용안내</a> <span>2024.04.26</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="title2"><a href="#">갤러리</a></div>
+                <div class="images">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="images/gallery01.jpg" alt="1"></a>
+                            <span>대한민국역사박물관 자료</span>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/gallery02.jpg" alt="2"></a>
+                            <span>자료공개구입 예정자료</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="banner"></div>
+        </main>
+        <!-- main -->
+
+        <section id="sliders">
+            <div class="sliderWrap">
+                <div class="slider s1">역사박물관1</div>
+                <div class="slider s2">역사박물관2</div>
+                <div class="slider s3">역사박물관3</div>
+            </div>
+        </section>
+        <!-- slider -->
+
+        <footer id="footer">
+            <div class="footer1"></div>
+            <div class="footer2"></div>
+            <div class="footer3"></div>
+        </footer>
+        <!-- footer -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $(".nav>ul>li").mouseover(function () {
+                $(this).find(">ul").stop().slideDown();
+            })
+            $(".nav>ul>li").mouseout(function () {
+                $(this).find(">ul").stop().slideUp();
+            });
+
+            let currentIndex = 0;
+
+            $(".sliderWrap").append($(".slider").first().clone(true));
+
+            setInterval(() => {
+                currentIndex++;
+
+                $(".sliderWrap").animate({ marginTop: -800 * currentIndex + "px" }, 600);
+
+                if (currentIndex == 3) {
+                    setTimeout(() => {
+                        $(".sliderWrap").animate({ marginTop: 0 }, 0);
+
+                        currentIndex = 0;
+                    }, 700)
+                }
+            }, 3000)
+        });
+
+
+    </script>
+</body>
+
+</html>

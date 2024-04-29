@@ -1,0 +1,26 @@
+# 파이썬 설치(+재시작)
+
+설치된 목록보기
+
+````
+    pip list
+````
+
+extensions
+
+python 설치
+
+## requests
+````
+    pip install requests
+    pip install beautifulsoup4
+    pip install lxml
+    pip install pandas
+    pip install selenium    
+````
+
+1. requests: 이 라이브러리는 Python에서 HTTP 요청을 만드는 데 사용됩니다. 웹 리소스 및 API에 액세스하는 데 일반적으로 사용됩니다.
+2. beautifulsoup4: Beautiful Soup은 HTML 및 XML 파일에서 데이터를 추출하기 위한 Python 라이브러리입니다. 파싱된 HTML 또는 XML 문서를 탐색하고 검색하는 방법을 제공합니다.
+3. lxml: 이는 Python의 XML 및 HTML 처리 라이브러리입니다. Beautiful Soup과 함께 사용되어 XML 및 HTML 데이터를 효율적으로 파싱하고 조작하는 데 자주 사용됩니다.
+4. pandas: Pandas는 Python에서 데이터 조작 및 분석을 위한 강력한 라이브러리입니다. 테이블 및 시계열과 같은 구조화된 데이터를 효율적으로 다루기 위한 데이터 구조 및 함수를 제공합니다.
+5. selenium: Selenium은 웹 브라우저를 자동화하기 위해 자주 사용되는 도구입니다. 웹 스크래핑, 웹 애플리케이션 테스트, 웹 브라우저를 사용하는 반복 작업을 자동화하는 데 유용합니다.

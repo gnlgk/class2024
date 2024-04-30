@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Effect</title>
-    
+
     <link rel="stylesheet" href="assets/css/parallax.css">
     <style>
         .parallax__item {
@@ -19,36 +19,50 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-        #section2, #section4, #section6, #section8 {
+
+        #section2,
+        #section4,
+        #section6,
+        #section8 {
             background-color: #22222216;
         }
+
         #section1 {
             background-image: url(https://images.unsplash.com/photo-1714108671525-a8f722f30632?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section2 {
             background-image: url(https://images.unsplash.com/photo-1709926301080-755d4f712edf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section3 {
             background-image: url(https://images.unsplash.com/photo-1712123070879-698600eb531f?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section4 {
             background-image: url(https://images.unsplash.com/photo-1421899528807-04d925f39555?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section5 {
             background-image: url(https://images.unsplash.com/photo-1485356824219-4bc17c2a2ea7?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section6 {
             background-image: url(https://images.unsplash.com/photo-1520367637177-c238498ff1d6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section7 {
             background-image: url(https://images.unsplash.com/photo-1713717857192-080dbbcba744?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section8 {
             background-image: url(https://images.unsplash.com/photo-1521445663891-5b413fa05f82?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         #section9 {
             background-image: url(https://images.unsplash.com/photo-1521436608249-2881844f8df3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
+
         .parallax__item__num {
             position: absolute;
             right: 20px;
@@ -56,6 +70,7 @@
             font-size: 30px;
             line-height: 1;
         }
+
         .parallax__item__title {
             font-size: 5vw;
             font-family: 'NexonLv1Gothic';
@@ -179,7 +194,7 @@
         //     pin: true,
         //     pinSpacing: false
         // });   
-        
+
         // gsap.utils.toArray(".parallax__item").forEach((panel, index)=>{
         //         ScrollTrigger.create({
         //         trigger: panel,
@@ -192,28 +207,27 @@
         //snap
 
         let panels = gsap.utils.toArray(".parallax__item");
-        let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+        let tops = panels.map(panel => ScrollTrigger.create({ trigger: panel, start: "top top" }));
 
         panels.forEach((panel, i) => {
             ScrollTrigger.create({
                 trigger: panel,
                 start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-                pin: true, 
-                pinSpacing: false 
+                pin: true,
+                pinSpacing: false
             });
         });
 
         ScrollTrigger.create({
             snap: {
                 snapTo: (progress, self) => {
-                    let panelStarts = tops.map(st => st.start), 
-                    snapScroll = gsap.utils.snap(panelStarts, self.scroll()); 
-                    return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); 
+                    let panelStarts = tops.map(st => st.start),
+                        snapScroll = gsap.utils.snap(panelStarts, self.scroll());
+                    return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll);
                 },
                 duration: 0.5
             }
         });
-
     </script>
 </body>
 

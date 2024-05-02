@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import time
 import json
+ 
 
 # 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")

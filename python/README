@@ -16,7 +16,8 @@ python 설치
     pip install beautifulsoup4
     pip install lxml
     pip install pandas
-    pip install selenium    
+    pip install selenium
+    pip install webdriver_manager 
 ````
 
 1. requests: 이 라이브러리는 Python에서 HTTP 요청을 만드는 데 사용됩니다. 웹 리소스 및 API에 액세스하는 데 일반적으로 사용됩니다.

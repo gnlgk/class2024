@@ -1,42 +1,55 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 from datetime import datetime
+import time
 import json
 
+# 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"composecoffee-menu_{current_date}.json"
+folder_path = "starbucks"
+filename = f"{folder_path}/menustarbucks_{current_date}.json"
 
-browser = webdriver.Chrome()
+# 웹드라이브 설치 및 초기화, headless 모드로 설정
+options = ChromeOptions()
+options.add_argument("--headless")  # headless 모드 설정
+browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
-urls = [
-    'https://composecoffee.com/menu/category/185?page=1',
-    'https://composecoffee.com/menu/category/185?page=2'
-]
+# 페이지 로드
+browser.get('https://www.starbucks.co.kr:7643/menu/drink_list.do')
 
-composecoffee_data = []
+# 페이지가 완전히 로드될 때까지 대기
+WebDriverWait(browser, 10).until(
+    EC.element_to_be_clickable((By.CLASS_NAME, "product_espresso"))
+)
 
-for url in urls:
-    browser.get(url)
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    html_source_updated = browser.page_source
-    soup = BeautifulSoup(html_source_updated, 'html.parser')
+# 페이지의 끝까지 스크롤 내리기
+browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    # 데이터 추출을 위해 클래스 이름으로 변경
-    items = soup.select(".itemBox")  # 모든 항목을 선택
-    for item in items:
-        # 제목 추출
-        title = item.select_one(".title").text.strip()
-        # 이미지 URL 추출 및 수정
-        img_url = item.select_one(".rthumbnailimg").get('src')
-        if not img_url.startswith("http"):
-            img_url = "https://composecoffee.com" + img_url  # 상대 경로일 경우 절대 경로로 변환
+# 업데이트된 페이지 소스를 변수에 저장
+html_source_updated = browser.page_source
+soup = BeautifulSoup(html_source_updated, 'html.parser')
 
-        composecoffee_data.append({
-            "title": title,
-            "img": img_url
-        })
+# 데이터 추출
+starbucks_data = []
+tracks = soup.select("#container > .content > .product_result_wrap.product_result_wrap01 > div > dl > dd:nth-child(2) > .product_list > dl > dd > ul > li")
 
+for track in tracks:
+    name = track.select_one("li > dl > dd").text.strip() 
+    image_url = track.select_one("li > dl > dt > a > img").get('src') 
+    starbucks_data.append({
+        "title": name,
+        "imageURL": image_url
+    })
+
+# 데이터를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as f:
-    json.dump(composecoffee_data, f, ensure_ascii=False, indent=4)
+    json.dump(starbucks_data, f, ensure_ascii=False, indent=4)
 
+# 브라우저 종료
 browser.quit()

@@ -1,48 +1,62 @@
-import requests
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from datetime import datetime
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 import json
+import os
 
+# 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"compose-menu_{current_date}.json"
+folder_path = "composecoffee"
+filename = f"{folder_path}/menucomposecoffee_{current_date}.json"
 
-def get_coffee_data(url):
-    # 사용자 에이전트 설정
-    headers = {'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'}
-    
-    # 웹 페이지로부터 데이터 요청 및 수신
-    res = requests.get(url, headers=headers)
-    soup = BeautifulSoup(res.text, "lxml")
+# 폴더 경로가 없다면 생성
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 
-    # 데이터 선택
-    coffee_data = []
-    rows = soup.select("tbody > tr.list")
+# 웹드라이버 초기화 (Chrome 사용)
+options = ChromeOptions()
+options.add_argument("--headless")
+browser = webdriver.Chrome(service=webdriver.ChromeService(ChromeDriverManager().install()), options=options)
 
-    for row in rows:
-        title = row.select_one(".title").text.strip()
-        image_url = row.select_one("td a.cover img").get('src').replace('//', 'https://')
-
-        coffee_data.append({
-            "title": title,
-            "imageUrl": image_url
-        })
-
-    return coffee_data
-
-# 두 페이지의 URL
+# 방문할 URL 리스트
 urls = [
-    'https://composecoffee.com/menu/category/185?page=1',
-    'https://composecoffee.com/menu/category/185?page=2'
+    "https://composecoffee.com/menu/category/185?page=1",
+    "https://composecoffee.com/menu/category/185?page=2",
 ]
 
-# 모든 페이지에서 차트 데이터 가져오기
-all_coffee_data = []
+# 데이터 추출을 위한 빈 리스트 생성
+theventi_data = []
+
 for url in urls:
-    coffee_data = get_coffee_data(url)
-    all_coffee_data.extend(coffee_data)
+    # 페이지 로드
+    browser.get(url)
+    
+    # 페이지의 끝까지 스크롤 내리기
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    
+    # 잠시 대기 (로딩 완료를 위해)
+    browser.implicitly_wait(5)
 
-# JSON 파일로 저장
-file_name = f"coffee_genie100_{current_date}.json"
+    # 업데이트된 페이지 소스를 변수에 저장
+    html_source_updated = browser.page_source
+    soup = BeautifulSoup(html_source_updated, 'html.parser')
 
-with open(file_name, 'w', encoding='utf-8') as file:
-    json.dump(all_coffee_data, file, ensure_ascii=False, indent=4)
+    # 데이터 추출
+    tracks = soup.select(".itemBox")
+    for track in tracks:
+        name = track.select_one(".title").text.strip()  
+        image_url = track.select_one(".rthumbnailimg").get('src').replace('/files', 'https://composecoffee.com/files') 
+
+        theventi_data.append({
+            "title": name,
+            "img": image_url 
+        })
+
+# 데이터를 JSON 파일로 저장
+with open(filename, 'w', encoding='utf-8') as f:
+    json.dump(theventi_data, f, ensure_ascii=False, indent=4)
+
+# 브라우저 종료
+browser.quit()

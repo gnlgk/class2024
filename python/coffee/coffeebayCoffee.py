@@ -12,51 +12,38 @@ import json
 
 # 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"chart_ediya_{current_date}.json"
+filename = f"menu-coffeebay_{current_date}.json"
 
 # 웹드라이브 설치
 options = ChromeOptions()
 service = ChromeService(executable_path=ChromeDriverManager().install())
 browser = webdriver.Chrome(service=service, options=options)
-browser.get("https://www.ediya.com/contents/drink.html?chked_val=12,13,14,15,16,71,83,132,&skeyword=#blockcate")
+browser.get("https://www.coffeebay.com/product/prd_menu.php?code=001&idx2=001")
 
 # 페이지가 완전히 로드될 때까지 대기
 WebDriverWait(browser, 10).until(
-    EC.presence_of_element_located((By.ID, "menu_ul"))
+    EC.presence_of_element_located((By.CLASS_NAME, "list_con"))
 )
-
-# "더보기" 버튼을 찾아 클릭
-try:
-    more_button = WebDriverWait(browser, 10).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, ".line_btn"))
-    )
-    if more_button:
-        browser.execute_script("arguments[0].click();", more_button)
-        print("Clicked '더보기' button.")
-        time.sleep(3)
-except Exception as e:
-    print("Error clicking '더보기':", e)
-
 
 # 업데이트된 페이지 소스를 변수에 저장
 html_source_updated = browser.page_source
 soup = BeautifulSoup(html_source_updated, 'html.parser')
 
 # 데이터 추출
-ediya_data = []
-tracks = soup.select("#menu_ul li")
-for track in tracks:
-    name = track.select_one(".menu_tt > a > span").text.strip()
-    image_url = track.select_one("a > img").get('src').replace('/images', 'https://www.ediya.com/files')
+coffee_data = []
+tracks = soup.select("#sub_con > div> div > .list_con > div > .list_con > ul > li")
 
-    ediya_data.append({
-        "name": name,
-        "image_url": image_url
+for track in tracks:
+    title = track.select_one("li > .list_div > .title_con > .kor_con > span").text.strip()    
+    image_url = track.select_one("li >.list_div >.img_con > img").get('src').replace('/img', 'https://www.coffeebay.com/img')
+    coffee_data.append({
+        "title": title,
+        "imageURL": image_url,
     })
 
 # 데이터를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as f:
-    json.dump(ediya_data, f, ensure_ascii=False, indent=4)
+    json.dump(coffee_data, f, ensure_ascii=False, indent=4)
 
-# 브라우저 종료
-browser.quit()
+# # 브라우저 종료
+# browser.quit()

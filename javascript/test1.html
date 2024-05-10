@@ -100,19 +100,28 @@
         </footer>
     </div>
     <script>
-        let my_string = "aAb1B2cC34oOp"
-        function solution(my_string) {
-            var result = 0;
-            let one = my_string.split("");
-            for (let e of one) {
-                if (!isNaN(e)) {
-                    result += e
-                    console.log(result)
+        const s = "asdoowd"
+
+        function solution(s) {
+            var answer = true;
+            let upper = s.toUpperCase().split('');
+
+            let p = upper.filter(item => item == "P");
+            let y = upper.filter(item => item == "Y");
+            if (!p && !y) {
+                return answer;
+            } else {
+                if (p.length === y.length) {
+                    console.log(answer);
+                } else {
+                    answer = false;
+                    console.log(answer);
                 }
             }
-            return result;
+            // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+            return answer;
         }
-        solution(my_string);
+        solution(s);
     </script>
 </body>
 

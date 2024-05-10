@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+    width: 100%;
+}
+
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#header {
+    display: flex;
+}
+
+.logo {
+    width: 20%;
+    height: 100px;
+    background-color: #242bad;
+}
+
+.logo a {
+    color: #fff;
+    padding: 30px 40px;
+    display: inline-block;
+}
+
+.nav {
+    width: 80%;
+    height: 100px;
+    background-color: #4348ab;
+}
+
+.nav>ul {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100%;
+}
+
+.nav>ul>li {
+    position: relative;
+}
+
+.nav>ul>li>a {
+    color: #fff;
+    padding: 15px 45px;
+    background-color: #292157;
+    display: block;
+}
+
+.nav>ul>li>a:hover {
+    background-color: #786cbb;
+}
+
+.nav>ul>li>ul {
+    position: absolute;
+    left: 0;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    display: none;
+}
+
+.nav>ul>li>ul>li>a {
+    padding: 10px 20px;
+    display: block;
+}
+
+#slider {
+    height: 300px;
+    background-color: #a09a23;
+}
+
+.sliderWrap {
+    position: relative;
+}
+
+.sliderWrap .slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sliderWrap .slider .text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #0000007f;
+    padding: 20px 30px;
+}
+
+.sliderWrap .slider .text h2 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 3px;
+}
+
+.sliderWrap .slider .text p {
+    color: #fff;
+}
+
+
+#contents {
+    display: flex;
+}
+
+.info {
+    width: 33.333%;
+    height: 200px;
+    background-color: #d7d5af;
+}
+
+.banner {
+    width: 33.333%;
+    height: 200px;
+    background-color: #d6cc1b;
+}
+
+.link {
+    width: 33.333%;
+    height: 200px;
+    background-color: #615f39;
+}
+
+#footer {
+    display: flex;
+}
+
+.footer1 {
+    width: 20%;
+    height: 100px;
+    background-color: #a09a23;
+}
+
+.footer2 {
+    width: 80%;
+}
+
+.footer2-1 {
+    width: 100%;
+    height: 50px;
+    background-color: #989674;
+}
+
+.footer2-2 {
+    width: 100%;
+    height: 50px;
+    background-color: #4d4b1f;
+}

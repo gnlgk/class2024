@@ -205,7 +205,7 @@
     <main id="parallax__cont">
         <section id="section1" class="parallax__item">
             <span class="parallax__item__num">01</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img1">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
@@ -213,7 +213,7 @@
 
         <section id="section2" class="parallax__item">
             <span class="parallax__item__num">02</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img2">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
@@ -222,7 +222,7 @@
         <main id="horizontal">
             <section id="section3" class="parallax__item">
                 <span class="parallax__item__num">03</span>
-                <figure class="parallax__item__imgWrap">
+                <figure class="parallax__item__imgWrap img3">
                     <div class="parallax__item__img"></div>
                 </figure>
             </section>
@@ -263,7 +263,7 @@
 
         <section id="section8" class="parallax__item">
             <span class="parallax__item__num">08</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img8">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
@@ -271,7 +271,7 @@
 
         <section id="section9" class="parallax__item">
             <span class="parallax__item__num">09</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img9">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
@@ -298,7 +298,45 @@
                 invalidateOnRefresh: true,
             }
         });
+        gsap.from(".img1", {
+            x: -200,
+            rotation: 90,
+            duration: 0.5,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".img1",
+                start: "top 20%",
+                end: "bottom 20%",
+                scrub: true,
 
+            }
+        })
+        gsap.to(".img2", {
+            rotation: 180,
+            duration: 0.5,
+            borderRadius: 1000,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".img2",
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: true,
+
+            }
+        })
+        gsap.to(".img3", {
+            y: 200,
+            duration: 2,
+            ease: "none",
+            scale: 0.5,
+            scrollTrigger: {
+                trigger: ".img3",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none reverse none",
+
+            }
+        })
         gsap.to(".img4", {
             y: -200,
             duration: 2,
@@ -356,7 +394,83 @@
                 id: "img7"
             }
         });
+        var tween = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".img8",
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: true,
 
+            }
+        });
+        // 여러 개의 x 값에 대한 애니메이션
+        tween.to(".img8", {
+            x: -500,
+            y: -300,
+            rotation: 90,
+            duration: 0.5,
+            ease: "none"
+        });
+        tween.to(".img8", {
+            x: 500,
+            y: -300,
+            rotation: 180,
+            duration: 0.5,
+            ease: "none"
+        });
+        tween.to(".img8", {
+            x: -500,
+            y: 300,
+            rotation: 180,
+            duration: 0.5,
+            ease: "none"
+        });
+        tween.to(".img8", {
+            x: 500,
+            y: 300,
+            rotation: 180,
+            duration: 0.5,
+            ease: "none"
+        });
+        var tween2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".img9",
+                start: "top 80%",
+                end: "bottom 80%",
+                scrub: true,
+
+            }
+        });
+        tween2.to(".img9", {
+            scale: 1.4,
+            duration: 0.5,
+            borderRadius: 1000,
+            ease: "none"
+        });
+        tween2.to(".img9", {
+            scale: 1.1,
+            duration: 0.5,
+            borderRadius: 1000,
+            ease: "none"
+        });
+        tween2.to(".img9", {
+            scale: 1.8,
+            duration: 0.5,
+            borderRadius: 1000,
+            ease: "none"
+        });
+        tween2.to(".img9", {
+            scale: 1.2,
+            duration: 0.5,
+            borderRadius: 1000,
+            ease: "none"
+        });
+        tween2.to(".img9", {
+            scale: 2,
+            duration: 0.5,
+            borderRadius: 1000,
+            ease: "none"
+        });
     </script>
 </body>
 

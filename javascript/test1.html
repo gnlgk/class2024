@@ -100,28 +100,16 @@
         </footer>
     </div>
     <script>
-        const s = "asdoowd"
+        const n = 123;
+        function solution(n) {
+            var answer = 0;
 
-        function solution(s) {
-            var answer = true;
-            let upper = s.toUpperCase().split('');
 
-            let p = upper.filter(item => item == "P");
-            let y = upper.filter(item => item == "Y");
-            if (!p && !y) {
-                return answer;
-            } else {
-                if (p.length === y.length) {
-                    console.log(answer);
-                } else {
-                    answer = false;
-                    console.log(answer);
-                }
-            }
-            // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+
+
             return answer;
         }
-        solution(s);
+        solution(n);
     </script>
 </body>
 

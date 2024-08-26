@@ -17,8 +17,8 @@ filename = f"menu-dessert39{current_date}.json"
 
 # 웹드라이브 설치
 options = ChromeOptions()
-service = ChromeService(executable_path=ChromeDriverManager().install())
-browser = webdriver.Chrome(service=service, options=options)
+options.add_argument("--headless")
+browser = webdriver.Chrome(service=webdriver.ChromeService(ChromeDriverManager().install()), options=options)
 browser.get("https://dessert39.com/html/pages/menu_beverage.php")
 
 # 페이지가 완전히 로드될 때까지 대기
@@ -30,17 +30,31 @@ WebDriverWait(browser, 10).until(
 html_source_updated = browser.page_source
 soup = BeautifulSoup(html_source_updated, 'html.parser')
 
+# 헤드의 타이틀을 가져옴
+page_title = soup.head.title.text.strip() if soup.head.title else "No Title"
+page_title = page_title.replace(" - 메뉴", "").strip()
+
+# 고정된 주소 설정
+address = "https://dessert39.com/"
+
 # 데이터 추출
 coffee_data = []
 tracks = soup.select("#list_98 .product")
 
 for track in tracks:
-    title = track.select_one(".product > p.tit").text.strip()    
+    brand = page_title  # 페이지 타이틀을 브랜드로 사용
+    title = track.select_one(".product > p.tit").text.strip()
     image_url = track.select_one(".product > .frame > img").get('src')
+    desction = track.select_one(".product > p.detail").text.strip()
+
     coffee_data.append({
+        "brand": brand,
         "title": title,
         "imageURL": image_url,
+        "desction": desction,
+        "address": address
     })
+
 
 # 데이터를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as f:

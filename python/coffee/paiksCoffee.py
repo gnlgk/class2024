@@ -34,11 +34,31 @@ coffee_data = []
 tracks = soup.select("#content-wrap > div.sub_section.menu_wrap > div > div.menu_list.clear > ul > li")
 
 for track in tracks:
-    title = track.select_one("li > p").text.strip()    
+    title = track.select_one("li > p").text.strip()
     image_url = track.select_one("li > div.thumb > img").get('src')
+    titleE = track.select_one("li > .hover > .menu_tit2.color-1").text.strip()
+    desction = track.select_one("li > .hover > .txt").text.strip()
+     
+
+    nutrition_info = {}
+    tbody = track.select_one(".ingredient_table")
+    if tbody:
+        rows = tbody.find_all("li")
+        for row in rows:
+            key_elem = row.select_one("div:nth-child(1)")
+            value_elem = row.select_one("div:nth-child(2)")
+            key = key_elem.text.strip() if key_elem else "Unknown"
+            value = value_elem.text.strip() if value_elem else "Unknown"
+            nutrition_info[key] = value
+
     coffee_data.append({
+        "brand": "빽다방",
         "title": title,
         "imageURL": image_url,
+        "titleE": titleE,
+        "desction": desction,
+        "information": nutrition_info,
+        "address": "https://paikdabang.com/"
     })
 
 # 데이터를 JSON 파일로 저장

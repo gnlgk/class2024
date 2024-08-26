@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* 960 768 600 */
+        }
+
+        #header {
+            max-width: 1260px;
+            height: 200px;
+            background-color: #204a69;
+            margin: 0 auto;
+        }
+
+        #article {
+            width: 1260px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .article1 {
+            width: 30%;
+            height: 600px;
+            background-color: #4f8fc0;
+        }
+
+        .article2 {
+            width: 70%;
+            height: 600px;
+            background-color: #86adcb;
+        }
+
+        #footer {
+            width: 1260px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #0b7ace;
+        }
+
+        @media (max-width:960px) {
+
+            #header,
+            #article,
+            #footer {
+                width: 90% !important;
+            }
+        }
+
+        @media (max-width:768px) {
+
+            #header,
+            #article,
+            #footer {
+                width: 768px !important;
+            }
+        }
+
+        @media (max-width:600px) {
+
+            #header,
+            #article,
+            #footer {
+                width: 600px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="article">
+        <div class="article1"></div>
+        <div class="article2"></div>
+    </div>
+    <div id="footer"></div>
+</body>
+
+</html>

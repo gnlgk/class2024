@@ -5,21 +5,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D-4</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #wrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #header {}
+
+        .logo {
+            width: 200px;
+            height: 100px;
+            background-color: #813131;
+        }
+
+        .nav {
+            width: 200px;
+            height: 700px;
+            background-color: #a18b8b;
+        }
+
+        .nav>ul {
+            padding: 20px;
+        }
+
+        .nav>ul>li {
+            display: flex;
+            position: relative;
+        }
+
+        .nav>ul>li>a {
+            background-color: #fff;
+            padding: 20px 30px;
+            display: inline-block;
+            width: 100%;
+            border: 1px solid #333;
+        }
+
+        .nav>ul>li>ul {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 48%;
+            transform: translate(12%, -50%);
+            z-index: 10;
+        }
+
+        .nav>ul>li>ul>li {
+            display: none;
+        }
+
+        .nav>ul>li>ul>li>a {
+            background-color: #d7baba;
+            padding: 21px 30px;
+            display: inline-block;
+            width: 173px;
+        }
+
+        #main {
+            width: calc(100% - 200px);
+        }
+
+        #slide {
+            width: 100%;
+            height: 400px;
+            background-color: #6a5353;
+        }
+
+        .sliderWrap {}
+
+        .slider {
+            width: 100%;
+            height: 400px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .slider.s1 {
+            background-image: url(img/slider01.jpg);
+        }
+
+        .slider.s2 {
+            background-image: url(img/slider02.jpg);
+        }
+
+        .slider.s3 {
+            background-image: url(img/slider03.jpg);
+        }
+
+        #contents {
+            width: 100;
+            height: 400px;
+            background-color: #c09797;
+        }
+
+        #footer {
+            width: 100%;
+            height: 120px;
+            background-color: #dcbdbd;
+        }
+    </style>
 </head>
 
 <body>
     <div id="wrap">
+        <header id="header">
+            <h1 class="logo">리빙샵아울렛</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">인기모음전</a>
+                        <ul>
+                            <li><a href="#">수저모음</a></li>
+                            <li><a href="#">도마모음</a></li>
+                            <li><a href="#">그릇모음</a></li>
+                            <li><a href="#">접시모음</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">베스트상품</a>
+                        <ul>
+                            <li><a href="#">주방용품</a></li>
+                            <li><a href="#">설비제품</a></li>
+                            <li><a href="#">인덕션제품</a></li>
+                            <li><a href="#">실리콘제품</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">업종별샵</a>
+                        <ul>
+                            <li><a href="#">한식기물</a></li>
+                            <li><a href="#">양식기물</a></li>
+                            <li><a href="#">일식기물</a></li>
+                            <li><a href="#">중식기물</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">인덕션용품</a>
+                        <ul>
+                            <li><a href="#">냄비/솥</a></li>
+                            <li><a href="#">후라이팬/주물</a></li>
+                            <li><a href="#">인덕션렌지</a></li>
+                            <li><a href="#">기타제품</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
         <main id="main">
-            <header id="header">
-                <h1 class="logo"></h1>
-                <nav class="nav"></nav>
-            </header>
-            <article id="slide"></article>
+            <article id="slide">
+                <div class="sliderWrap">
+                    <div class="slider s1">
+                        <a href="#">
+                        </a>
+                    </div>
+                    <div class="slider s2">
+                        <a href="#">
+                        </a>
+                    </div>
+                    <div class="slider s3">
+                        <a href="#">
+                        </a>
+                    </div>
+                </div>
+            </article>
             <section id="contents"></section>
         </main>
         <footer id="footer"></footer>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".nav>ul>li").mouseover(function () {
+                $(".nav>ul>li>ul>li").stop().fadeIn(600);
+            })
+            $(".nav>ul>li").mouseout(function () {
+                $(".nav>ul>li>ul>li").stop().fadeOut(600);
+            })
+
+
+            const currentIndex = 0;
+            $(".sliderWrap").append($(".slider").first().clone(true));
+
+            setInterval(function () {
+                $(".sliderWrap").stop().fadeIn(600);
+            })
+        })
+    </script>
 </body>
 
 </html>

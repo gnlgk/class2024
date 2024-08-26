@@ -18,41 +18,65 @@ filename = f"menu-bombom_{current_date}.json"
 options = ChromeOptions()
 service = ChromeService(executable_path=ChromeDriverManager().install())
 browser = webdriver.Chrome(service=service, options=options)
+
+# 첫 번째 페이지로 이동
 browser.get("http://www.cafebombom.co.kr/bbs/board.php?bo_table=menu&sca=COFFEE&page=1")
+WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "gall_ul")))
 
-# 페이지가 완전히 로드될 때까지 대기
-WebDriverWait(browser, 10).until(
-    EC.presence_of_element_located((By.ID, "gall_ul"))
-)
+# 커피 정보를 저장할 리스트
+coffee_data = []
 
-# "더보기" 버튼을 찾아 클릭
-try:
-    more_button = WebDriverWait(browser, 10).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, ".pg_page"))
-    )
-    if more_button:
-        browser.execute_script("arguments[0].click();", more_button)
-        print("Clicked '더보기' button.")
-        time.sleep(3)
-except Exception as e:
-    print("Error clicking '더보기':", e)
-
-
-# 업데이트된 페이지 소스를 변수에 저장
+# 현재 페이지의 커피 정보 가져오기
 html_source_updated = browser.page_source
 soup = BeautifulSoup(html_source_updated, 'html.parser')
-
-# 데이터 추출
-coffee_data = []
-tracks = soup.select(".gall_li.col-gn-4")
+tracks = soup.select("#gall_ul > li > div > .gall_con > .gall_img > span")
 for track in tracks:
-    title = track.select_one("li>div>div>div>a").text.strip()
-    image_url = track.select_one("li > div > .gall_con > .gall_img > img").get('src')
-
+    coffee_link = track.select_one("a").get('href')
+    browser.get(f"{coffee_link}")
+    WebDriverWait(browser, 20).until(EC.presence_of_element_located((By.ID, "bo_v_con")))
+    detail_page_source = browser.page_source
+    detail_soup = BeautifulSoup(detail_page_source, 'html.parser')
+    title = detail_soup.select_one("#bo_v_con > div > .txt_box > h2").text.strip()
+    titleE = detail_soup.select_one("#bo_v_con > div > .txt_box > p:nth-child(3)").text.strip()
+    image_url = detail_soup.select_one("#bo_v_img > a > img").get('src')
+    desction = detail_soup.select_one("#bo_v_con > div > .txt_box > p:nth-child(4)").text.strip()
     coffee_data.append({
+        "brand": "봄봄",
         "title": title,
+        "titleE": titleE,
         "imageURL": image_url,
+        "desction": desction,
+        "address": "http://www.cafebombom.co.kr"
     })
+    # print(f"Added coffee data: {coffee_data[-1]}")
+
+# 두 번째 페이지로 이동
+browser.get("http://www.cafebombom.co.kr/bbs/board.php?bo_table=menu&sca=COFFEE&page=2")
+WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "gall_ul")))
+
+# 현재 페이지의 커피 정보 가져오기
+html_source_updated = browser.page_source
+soup = BeautifulSoup(html_source_updated, 'html.parser')
+tracks = soup.select("#gall_ul > li > div > .gall_con > .gall_img > span")
+for track in tracks:
+    coffee_link = track.select_one("a").get('href')
+    browser.get(f"{coffee_link}")
+    WebDriverWait(browser, 20).until(EC.presence_of_element_located((By.ID, "bo_v_con")))
+    detail_page_source = browser.page_source
+    detail_soup = BeautifulSoup(detail_page_source, 'html.parser')
+    title = detail_soup.select_one("#bo_v_con > div > .txt_box > h2").text.strip()
+    titleE = detail_soup.select_one("#bo_v_con > div > .txt_box > p:nth-child(3)").text.strip()
+    image_url = detail_soup.select_one("#bo_v_img > a > img").get('src')
+    desction = detail_soup.select_one("#bo_v_con > div > .txt_box > p:nth-child(4)").text.strip()
+    coffee_data.append({
+        "brand": "봄봄",
+        "title": title,
+        "titleE": titleE,
+        "imageURL": image_url,
+        "desction": desction,
+        "address": "http://www.cafebombom.co.kr"
+    })
+    # print(f"Added coffee data: {coffee_data[-1]}")
 
 # 데이터를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as f:

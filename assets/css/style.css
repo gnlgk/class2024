@@ -106,6 +106,15 @@
     --fontG: "GmarketSans";
 }
 
+a {
+    text-decoration: none;
+    color: #00A7FD;
+}
+
+li {
+    list-style: none;
+}
+
 body {
     width: 100%;
     height: 100vh;
